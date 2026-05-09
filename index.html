@@ -750,7 +750,7 @@ em{font-style:italic;}
 .box-rt span{font-size:11.5px;color:var(--ink-3);}
 .box-foot{margin-top:18px;background:var(--purple-deep);border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold-bright);font-size:12px;font-weight:600;letter-spacing:0.05em;border:1px solid rgba(201,150,42,0.3);}
 
-/* Floating little items beside the box */
+/* Floating little items beside the kit */
 .float-pill{position:absolute;background:var(--purple-deep);border:1px solid rgba(201,150,42,0.4);backdrop-filter:blur(12px);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:12px;color:#fff;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.35);animation:floatB 5s ease-in-out infinite;z-index:10;}
 .float-pill i{color:var(--gold-bright);}
 .float-pill.f1{top:12%;left:-8px;animation-delay:0s;}
@@ -833,15 +833,15 @@ em{font-style:italic;}
    "WHAT'S INSIDE" — INTERACTIVE BOX
 ═══════════════════════════════════════════════ */
 .whats-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;}
-.whats-vis{position:relative;aspect-ratio:1;background:linear-gradient(155deg,var(--purple-deep) 0%,#3b1f5e 60%,var(--green) 110%);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);padding:36px;display:flex;flex-direction:column;}
+.whats-vis{position:relative;aspect-ratio:1;background:linear-gradient(155deg,var(--purple-deep) 0%,#3b1f5e 60%,var(--green) 110%);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);padding:24px;display:flex;flex-direction:column;}
 .whats-vis::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(201,150,42,0.20) 0,transparent 50%),radial-gradient(circle at 80% 85%,rgba(92,52,128,0.5) 0,transparent 55%);pointer-events:none;}
 .whats-vis-label{position:relative;font-family:var(--serif);font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-bright);text-align:center;margin-bottom:18px;}
-.whats-items{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;}
-.wi{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:18px 14px;text-align:center;cursor:pointer;transition:all 0.3s;backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.whats-items{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;flex:1;}
+.wi{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;transition:all 0.3s;backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .wi:hover,.wi.active{background:rgba(232,184,75,0.16);border-color:rgba(232,184,75,0.45);transform:translateY(-3px);}
-.wi .ico{font-size:30px;margin-bottom:8px;display:block;}
-.wi-name{font-size:11.5px;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.04em;line-height:1.3;}
-.wi-sub{font-size:10px;color:rgba(255,255,255,0.5);margin-top:3px;}
+.wi .ico{font-size:20px;margin-bottom:4px;display:block;}
+.wi-name{font-size:10px;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.03em;line-height:1.2;}
+.wi-sub{font-size:9px;color:rgba(255,255,255,0.5);margin-top:3px;}
 .whats-text h2{margin-bottom:18px;}
 .whats-text>p{font-size:16px;color:var(--ink-3);line-height:1.75;margin-bottom:24px;}
 .whats-detail{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:24px 26px;margin-bottom:18px;min-height:140px;transition:opacity 0.25s;}
@@ -1692,7 +1692,7 @@ em{font-style:italic;}
 .box-rt span{font-size:11.5px;color:var(--ink-3);}
 .box-foot{margin-top:18px;background:var(--purple-deep);border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold-bright);font-size:12px;font-weight:600;letter-spacing:0.05em;border:1px solid rgba(201,150,42,0.3);}
 
-/* Floating little items beside the box */
+/* Floating little items beside the kit */
 .float-pill{position:absolute;background:var(--purple-deep);border:1px solid rgba(201,150,42,0.4);backdrop-filter:blur(12px);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:12px;color:#fff;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.35);animation:floatB 5s ease-in-out infinite;z-index:10;}
 .float-pill i{color:var(--gold-bright);}
 .float-pill.f1{top:12%;left:-8px;animation-delay:0s;}
@@ -1775,15 +1775,15 @@ em{font-style:italic;}
    "WHAT'S INSIDE" — INTERACTIVE BOX
 ═══════════════════════════════════════════════ */
 .whats-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;}
-.whats-vis{position:relative;aspect-ratio:1;background:linear-gradient(155deg,var(--purple-deep) 0%,#3b1f5e 60%,var(--green) 110%);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);padding:36px;display:flex;flex-direction:column;}
+.whats-vis{position:relative;aspect-ratio:1;background:linear-gradient(155deg,var(--purple-deep) 0%,#3b1f5e 60%,var(--green) 110%);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);padding:24px;display:flex;flex-direction:column;}
 .whats-vis::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(201,150,42,0.20) 0,transparent 50%),radial-gradient(circle at 80% 85%,rgba(92,52,128,0.5) 0,transparent 55%);pointer-events:none;}
 .whats-vis-label{position:relative;font-family:var(--serif);font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-bright);text-align:center;margin-bottom:18px;}
-.whats-items{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;}
-.wi{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:18px 14px;text-align:center;cursor:pointer;transition:all 0.3s;backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.whats-items{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;flex:1;}
+.wi{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;transition:all 0.3s;backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .wi:hover,.wi.active{background:rgba(232,184,75,0.16);border-color:rgba(232,184,75,0.45);transform:translateY(-3px);}
-.wi .ico{font-size:30px;margin-bottom:8px;display:block;}
-.wi-name{font-size:11.5px;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.04em;line-height:1.3;}
-.wi-sub{font-size:10px;color:rgba(255,255,255,0.5);margin-top:3px;}
+.wi .ico{font-size:20px;margin-bottom:4px;display:block;}
+.wi-name{font-size:10px;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.03em;line-height:1.2;}
+.wi-sub{font-size:9px;color:rgba(255,255,255,0.5);margin-top:3px;}
 .whats-text h2{margin-bottom:18px;}
 .whats-text>p{font-size:16px;color:var(--ink-3);line-height:1.75;margin-bottom:24px;}
 .whats-detail{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:24px 26px;margin-bottom:18px;min-height:140px;transition:opacity 0.25s;}
@@ -2172,7 +2172,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="hero-text reveal">
         <span class="eyebrow light">✦ Faith Formation Delivered Monthly ✦</span>
         <h1>Raise children who know, love, and <em>live the faith.</em></h1>
-        <p class="hero-lede">A curriculum-grade Catholic kit at your door each month. Educator-designed. Seminary-reviewed. Open the box, gather your family, and watch your dinner table become the <em>ecclesia domestica.</em></p>
+        <p class="hero-lede">A curriculum-grade Catholic kit at your door each month. Educator-designed. Seminary-reviewed. Open the kit, gather your family, and watch your dinner table become the <em>ecclesia domestica.</em></p>
         <div class="hero-ctas">
           <a class="btn btn-gold btn-lg btn-arrow" onclick="navigate('subscriptions')">Join Founding Members</a>
           <a class="btn btn-outline-light btn-lg" onclick="scrollToId('peek')">See What's Inside</a>
@@ -2193,13 +2193,13 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" fill="currentColor" style="width:1em;height:1.4em;vertical-align:-0.125em"><rect x="42" y="0" width="16" height="140" rx="3"/><rect x="10" y="30" width="80" height="16" rx="3"/></svg>
             <span>Seminary<br>Reviewed</span>
           </div>
-          <div class="box-label"><span class="glyph">✦ This Month's Box ✦</span></div>
+          <div class="box-label"><span class="glyph">✦ This Month's Kit ✦</span></div>
           <div class="box-rows">
             <div class="box-row"><div class="box-icon" style="background:#f0e8f8">📖</div><div class="box-rt"><strong>Activity Guide</strong><span>Step-by-step. No planning.</span></div></div>
             <div class="box-row"><div class="box-icon" style="background:#fdf3dc">🎨</div><div class="box-rt"><strong>All Craft Supplies</strong><span>Everything included</span></div></div>
             <div class="box-row"><div class="box-icon" style="background:#e8f2ea">✝️</div><div class="box-rt"><strong>Saint Card Set</strong><span>Illustrated, reviewed</span></div></div>
             <div class="box-row"><div class="box-icon" style="background:#fdf0f0">🙏</div><div class="box-rt"><strong>Seasonal Prayer Card</strong><span>Tied to the liturgical season</span></div></div>
-            <div class="box-row"><div class="box-icon" style="background:#f0e8f8">📚</div><div class="box-rt"><strong>Children's Booklet</strong><span>Curriculum-grade, ages 3–10</span></div></div>
+            <div class="box-row"><div class="box-icon" style="background:#f0e8f8">📚</div><div class="box-rt"><strong>Children's Booklet</strong><span>Curriculum-grade, ages 5–10</span></div></div>
             <div class="box-row"><div class="box-icon" style="background:#e8f2ea">🌿</div><div class="box-rt"><strong>Virtue Card</strong><span>Character + saint pairing</span></div></div>
           </div>
           <div class="box-foot"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16z"/></svg> Ships before the 1st of every month</div>
@@ -2294,13 +2294,13 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="whats-grid">
         <div class="reveal">
           <div class="whats-vis">
-            <div class="whats-vis-label">✦ Open This Month's Box ✦</div>
+            <div class="whats-vis-label">✦ Open This Month's Kit ✦</div>
             <div class="whats-items" id="wi-items">
               <div class="wi active" data-i="0"><span class="ico">📖</span><div class="wi-name">Activity Guide</div><div class="wi-sub">Step-by-step</div></div>
               <div class="wi" data-i="1"><span class="ico">🎨</span><div class="wi-name">Craft Supplies</div><div class="wi-sub">All included</div></div>
               <div class="wi" data-i="2"><span class="ico">✝️</span><div class="wi-name">Saint Card Set</div><div class="wi-sub">Illustrated</div></div>
               <div class="wi" data-i="3"><span class="ico">🙏</span><div class="wi-name">Prayer Card</div><div class="wi-sub">Seasonal</div></div>
-              <div class="wi" data-i="4"><span class="ico">📚</span><div class="wi-name">Booklet</div><div class="wi-sub">Ages 3–10</div></div>
+              <div class="wi" data-i="4"><span class="ico">📚</span><div class="wi-name">Booklet</div><div class="wi-sub">Ages 5–10</div></div>
               <div class="wi" data-i="5"><span class="ico">🌿</span><div class="wi-name">Liturgical Décor</div><div class="wi-sub">Table piece</div></div>
               <div class="wi" data-i="6"><span class="ico">💎</span><div class="wi-name">Virtue Card</div><div class="wi-sub">Character</div></div>
               <div class="wi" data-i="7"><span class="ico">🕯</span><div class="wi-name">Family Ritual</div><div class="wi-sub">Weekly rhythm</div></div>
@@ -2309,14 +2309,14 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         </div>
         <div class="whats-text reveal d1">
           <span class="eyebrow">Hover Each Item</span>
-          <h2>Inside every box: a complete family session.</h2>
+          <h2>Inside every kit: a complete family session.</h2>
           <p>Seven curated pieces, designed by an early-childhood educator and reviewed by a seminary professor. Tap an item to see what each does for your family.</p>
           <div class="whats-detail" id="whats-detail">
             <span class="meta">Activity Guide</span>
             <h4>The lesson plan that makes you the catechist.</h4>
             <p>A printed guide that walks you through tonight's session — open it, follow it, lead it. Discussion questions tiered by age. No prep. No Googling. The teacher's manual you wish your parish handed you.</p>
           </div>
-          <a class="btn btn-purple btn-arrow" onclick="navigate('subscriptions')">Subscribe &amp; Receive May's Box</a>
+          <a class="btn btn-purple btn-arrow" onclick="navigate('subscriptions')">Subscribe &amp; Receive May's Kit</a>
         </div>
       </div>
     </div>
@@ -2402,7 +2402,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="reveal d1 founders-text">
           <span class="eyebrow">Our Story</span>
           <h2>Built by a Catholic family who lived the need.</h2>
-          <p>Chelsea came into the Church through OCIA. She's also a certified early-childhood educator who has taught Pre-K and 2nd grade at a Catholic school. John runs the business. Together they raise children who don't just know the faith — they live it.</p>
+          <p>Chelsea came into the Church through OCIA. She's also a certified early-childhood educator who has taught Pre-K and 2nd grade at a Catholic school. John runs the business. Together they share a vision of helping families raise children who don't just know the faith — they live it.</p>
           <p>Catholic Family Kit is the resource they wish had existed: educator-designed, seminary-reviewed, and ready to open on a Tuesday night.</p>
           <div class="creds">
             <span class="cred"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.4 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg> OCIA Convert</span>
@@ -2616,7 +2616,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="container">
       <div class="text-center reveal">
         <span class="eyebrow center">Every Single Month</span>
-        <h2>What's in every box.</h2>
+        <h2>What's in every kit.</h2>
         <p class="subtitle">Seven curated pieces, assembled around the liturgical season, delivered before the month begins.</p>
       </div>
       <div class="wi-grid reveal">
@@ -2625,7 +2625,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="wi-card"><div class="emoji">👼</div><h4>Saint Cards</h4><p>Illustrated, age-appropriate, theologically reviewed.</p></div>
         <div class="wi-card"><div class="emoji">🙏</div><h4>Prayer Card</h4><p>Tied to the current liturgical season.</p></div>
         <div class="wi-card"><div class="emoji">🌿</div><h4>Liturgical Décor</h4><p>A seasonal table piece for your home.</p></div>
-        <div class="wi-card"><div class="emoji">📚</div><h4>Children's Booklet</h4><p>Curriculum-grade. Written for ages 3–10.</p></div>
+        <div class="wi-card"><div class="emoji">📚</div><h4>Children's Booklet</h4><p>Curriculum-grade. Written for ages 5–10.</p></div>
         <div class="wi-card"><div class="emoji">💎</div><h4>Virtue Card</h4><p>Character formation tied to the season.</p></div>
       </div>
     </div>
@@ -2673,8 +2673,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
           <span>Seminary<br>Reviewed</span>
         </div>
         <div class="theology-text">
-          <h3>Every box is reviewed by a seminary professor of theology before it ships.</h3>
-          <p>No other Catholic subscription box offers this. Every activity guide, saint card, prayer, and educational booklet is reviewed for fidelity to the Magisterium and the Catechism before it goes into your box. Open it with full confidence.</p>
+          <h3>Every kit is reviewed by a seminary professor of theology before it ships.</h3>
+          <p>No other Catholic subscription kit offers this. Every activity guide, saint card, prayer, and educational booklet is reviewed for fidelity to the Magisterium and the Catechism before it goes into your kit. Open it with full confidence.</p>
         </div>
       </div>
 
@@ -2692,7 +2692,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="edge reveal d3">
           <div class="edge-icn green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 48c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48v128H256V48zM0 288c0-17.7 14.3-32 32-32H288v64H64v128H576V320H352v-64H608c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V288zm128-96H48c-26.5 0-48-21.5-48-48V80c0-11.3 4.5-22.2 12.5-30.2l44.3-44.3C64.5 4.5 75.4 0 86.6 0H128V192zm256 0V0h41.4c11.2 0 22.1 4.5 30.1 12.5l44.3 44.3C507.5 64.8 512 75.7 512 86.6V192H384z"/></svg></div>
           <h4>Zero Prep. Open and Go.</h4>
-          <p>Every supply is in the box. The guide tells you exactly what to do, in what order, with what talking points. Open Thursday at 7pm and run a beautiful family activity by 7:20.</p>
+          <p>Every supply is in the kit. The guide tells you exactly what to do, in what order, with what talking points. Open Thursday at 7pm and run a beautiful family activity by 7:20.</p>
         </div>
         <div class="edge reveal d4">
           <div class="edge-icn red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M352 0H288c-17.7 0-32 14.3-32 32V64H192c-17.7 0-32 14.3-32 32v64H96c-17.7 0-32 14.3-32 32v288c0 17.7 14.3 32 32 32H224V352c0-53 43-96 96-96s96 43 96 96V512H544c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32H480V96c0-17.7-14.3-32-32-32H384V32c0-17.7-14.3-32-32-32zM304 176V128h32v48h48v32H336v48H304V208H256V176h48z"/></svg></div>
@@ -2702,7 +2702,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="edge reveal d5" style="grid-column:1/-1">
           <div class="edge-icn navy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8z"/></svg></div>
           <h4>Curriculum-Grade Content, Not Pinterest Crafts</h4>
-          <p>Built on early-childhood education principles — sequencing, repetition, multi-sensory engagement, age-appropriate vocabulary, formative discussion. The kind of catechesis a Catholic school takes two weeks to deliver, arriving in a box ready for tonight after dinner.</p>
+          <p>Built on early-childhood education principles — sequencing, repetition, multi-sensory engagement, age-appropriate vocabulary, formative discussion. The kind of catechesis a Catholic school takes two weeks to deliver, arriving in a kit ready for tonight after dinner.</p>
         </div>
       </div>
     </div>
@@ -2754,17 +2754,17 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
             <button class="faq-cat" data-cat="gift">Gifts</button>
           </div>
 
-          <div class="faq-item open" data-cat="content"><div class="faq-q" onclick="toggleFaq(this)">What ages is Catholic Family Kit designed for?<span class="faq-icon">+</span></div><div class="faq-a"><p>Designed for families with children ages 3–10. Chelsea builds each activity to work across this range — a 4-year-old and a 9-year-old can do the same activity at different depths. The Activity Guide includes discussion questions tiered by age. Many families tell us their 11–14 year olds engage equally well, especially in discussion.</p></div></div>
+          <div class="faq-item open" data-cat="content"><div class="faq-q" onclick="toggleFaq(this)">What ages is Catholic Family Kit designed for?<span class="faq-icon">+</span></div><div class="faq-a"><p>Designed for families with children ages 5–10. Chelsea builds each activity to work across this range — a 4-year-old and a 9-year-old can do the same activity at different depths. The Activity Guide includes discussion questions tiered by age. Many families tell us their 11–14 year olds engage equally well, especially in discussion.</p></div></div>
 
-          <div class="faq-item" data-cat="ship"><div class="faq-q" onclick="toggleFaq(this)">When does the box ship? When will it arrive?<span class="faq-icon">+</span></div><div class="faq-a"><p>We ship between the 25th–27th of each month via USPS Priority Mail so kits arrive by the 1st of the following month — giving you all month to use it in rhythm. Subscriptions renew on the 15th. If you subscribe after the 15th, your first physical kit ships the following month, but you receive that month's Digital Activity Guide immediately by email at no extra charge. All plans include free US shipping.</p></div></div>
+          <div class="faq-item" data-cat="ship"><div class="faq-q" onclick="toggleFaq(this)">When does the kit ship? When will it arrive?<span class="faq-icon">+</span></div><div class="faq-a"><p>We ship between the 25th–27th of each month via USPS Priority Mail so kits arrive by the 1st of the following month — giving you all month to use it in rhythm. Subscriptions renew on the 15th. If you subscribe after the 15th, your first physical kit ships the following month, but you receive that month's Digital Activity Guide immediately by email at no extra charge. All plans include free US shipping.</p></div></div>
 
-          <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">Can I cancel? Are there contracts?<span class="faq-icon">+</span></div><div class="faq-a"><p>No contracts, ever. Cancel anytime before the 15th of the month and you won't be charged for the following box. Cancel after the 15th and you'll receive one more box (already billed) before your subscription ends. You can also skip individual months instead of canceling. Founding Member pricing is locked for as long as you maintain your subscription.</p></div></div>
+          <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">Can I cancel? Are there contracts?<span class="faq-icon">+</span></div><div class="faq-a"><p>No contracts, ever. Cancel anytime before the 15th of the month and you won't be charged for the following kit. Cancel after the 15th and you'll receive one more kit (already billed) before your subscription ends. You can also skip individual months instead of canceling. Founding Member pricing is locked for as long as you maintain your subscription.</p></div></div>
 
-          <div class="faq-item" data-cat="content"><div class="faq-q" onclick="toggleFaq(this)">Is the content doctrinally accurate? How do I know?<span class="faq-icon">+</span></div><div class="faq-a"><p>Every box is reviewed by a credentialed seminary professor of theology before it ships. Every activity guide, saint card, prayer, and educational booklet is checked for fidelity to the Magisterium and the Catechism of the Catholic Church. No other Catholic subscription box offers this level of theological oversight.</p></div></div>
+          <div class="faq-item" data-cat="content"><div class="faq-q" onclick="toggleFaq(this)">Is the content doctrinally accurate? How do I know?<span class="faq-icon">+</span></div><div class="faq-a"><p>Every kit is reviewed by a credentialed seminary professor of theology before it ships. Every activity guide, saint card, prayer, and educational booklet is checked for fidelity to the Magisterium and the Catechism of the Catholic Church. No other Catholic subscription kit offers this level of theological oversight.</p></div></div>
 
-          <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">Do you offer one-time purchases (no subscription)?<span class="faq-icon">+</span></div><div class="faq-a"><p>At this time, we focus on the subscription model so we can keep production tightly tied to the liturgical calendar and seminary review. If you'd like a single box as a trial, contact us and we'll send the current month's box at the regular monthly rate, no commitment.</p></div></div>
+          <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">Do you offer one-time purchases (no subscription)?<span class="faq-icon">+</span></div><div class="faq-a"><p>At this time, we focus on the subscription model so we can keep production tightly tied to the liturgical calendar and seminary review. If you'd like a single kit as a trial, contact us and we'll send the current month's kit at the regular monthly rate, no commitment.</p></div></div>
 
-          <div class="faq-item" data-cat="gift"><div class="faq-q" onclick="toggleFaq(this)">Can I send a box as a gift?<span class="faq-icon">+</span></div><div class="faq-a"><p>Absolutely — our boxes make wonderful gifts for godchildren, nieces and nephews, grandchildren, and fellow Catholic families. Enter the recipient's shipping address at checkout. You can gift individual boxes or purchase a prepaid annual subscription. The physicality of the box is intentional — it's part of the formation experience.</p></div></div>
+          <div class="faq-item" data-cat="gift"><div class="faq-q" onclick="toggleFaq(this)">Can I send a kit as a gift?<span class="faq-icon">+</span></div><div class="faq-a"><p>Absolutely — our boxes make wonderful gifts for godchildren, nieces and nephews, grandchildren, and fellow Catholic families. Enter the recipient's shipping address at checkout. You can gift individual boxes or purchase a prepaid annual subscription. The physicality of the kit is intentional — it's part of the formation experience.</p></div></div>
 
           <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">What is the Founding Member price lock?<span class="faq-icon">+</span></div><div class="faq-a"><p>Founding Members lock in $39.95/mo for as long as they maintain an active subscription — even after we raise our regular price to $49.95/mo. Once Founding Member spots close, they're gone permanently. The rate lock applies to the same account and cannot be transferred. It's permanently forfeited if you cancel and re-subscribe later.</p></div></div>
 
@@ -2774,9 +2774,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
 
           <div class="faq-item" data-cat="content"><div class="faq-q" onclick="toggleFaq(this)">My family is Eastern Catholic / Byzantine. Will this fit?<span class="faq-icon">+</span></div><div class="faq-a"><p>The kit is designed around the Roman Rite liturgical calendar. Many Eastern Catholic families still find it valuable since the saints, virtues, and core catechesis are universal. We're working on Eastern Rite supplemental materials — contact us to be notified.</p></div></div>
 
-          <div class="faq-item" data-cat="ship"><div class="faq-q" onclick="toggleFaq(this)">My box arrived damaged. What do I do?<span class="faq-icon">+</span></div><div class="faq-a"><p>Email <a href="mailto:hello@catholicfamilykit.com">hello@catholicfamilykit.com</a> within 7 days of delivery with a photo. We ship a replacement within 5 business days at no charge — full stop.</p></div></div>
+          <div class="faq-item" data-cat="ship"><div class="faq-q" onclick="toggleFaq(this)">My kit arrived damaged. What do I do?<span class="faq-icon">+</span></div><div class="faq-a"><p>Email <a href="mailto:hello@catholicfamilykit.com">hello@catholicfamilykit.com</a> within 7 days of delivery with a photo. We ship a replacement within 5 business days at no charge — full stop.</p></div></div>
 
-          <div class="faq-item" data-cat="gift"><div class="faq-q" onclick="toggleFaq(this)">Can I include a gift note?<span class="faq-icon">+</span></div><div class="faq-a"><p>Yes — at checkout there's a gift-note field. We hand-write a note onto a Catholic Family Kit gift card and tuck it into the box.</p></div></div>
+          <div class="faq-item" data-cat="gift"><div class="faq-q" onclick="toggleFaq(this)">Can I include a gift note?<span class="faq-icon">+</span></div><div class="faq-a"><p>Yes — at checkout there's a gift-note field. We hand-write a note onto a Catholic Family Kit gift card and tuck it into the kit.</p></div></div>
         </div>
       </div>
     </div>
@@ -2808,7 +2808,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
               <div class="field"><label>Email *</label><input id="cf-email" type="email" placeholder="your@email.com"></div>
               <div class="field"><label>Subject *</label><select id="cf-subject">
                   <option value="">Select a topic...</option>
-                  <option>What's in the box each month?</option>
+                  <option>What's in the kit each month?</option>
                   <option>Shipping — When will my kit arrive?</option>
                   <option>Subscription — Skip or pause a month</option>
                   <option>Subscription — Cancel my subscription</option>
@@ -2845,7 +2845,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
     <h2>Shipping Policy</h2>
     <p class="last-up">Last updated: May 2026</p>
 
-    <div class="legal-callout"><strong>The short version:</strong> Every kit ships free to the contiguous 48 states, leaves our hands between the 25th–27th of the month, and arrives by the 1st. Subscribe by the 15th to receive that month's kit; subscribe after the 15th and we send you the Digital Activity Guide immediately while your first physical box ships next month.</div>
+    <div class="legal-callout"><strong>The short version:</strong> Every kit ships free to the contiguous 48 states, leaves our hands between the 25th–27th of the month, and arrives by the 1st. Subscribe by the 15th to receive that month's kit; subscribe after the 15th and we send you the Digital Activity Guide immediately while your first physical kit ships next month.</div>
 
     <div class="legal-toc">
       <h5>On This Page</h5>
@@ -3094,7 +3094,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
     <p><strong>Prohibited:</strong> Reproduction, redistribution, photocopying for resale, posting full content online, or any commercial use without written permission.</p>
 
     <h3 id="tos-9">9. Safety: Small Parts Warning</h3>
-    <p><strong>WARNING — CHOKING HAZARD:</strong> Some items in our kits contain small parts and are not suitable for children under 3 years of age without direct adult supervision. Activities are designed for ages 3–10 and require adult guidance. CFK is not liable for misuse of materials outside the recommended age range.</p>
+    <p><strong>WARNING — CHOKING HAZARD:</strong> Some items in our kits contain small parts and are not suitable for children under 3 years of age without direct adult supervision. Activities are designed for ages 5–10 and require adult guidance. CFK is not liable for misuse of materials outside the recommended age range.</p>
 
     <h3 id="tos-10">10. Disclaimers</h3>
     <p>The Site and kits are provided <strong>"AS IS"</strong> and <strong>"AS AVAILABLE."</strong> While our content is reviewed by a credentialed seminary professor of theology for fidelity to the Magisterium and the Catechism of the Catholic Church, CFK does not constitute formal Magisterial teaching, Imprimatur, or Nihil Obstat. CFK makes no warranty regarding outcomes of faith formation. To the maximum extent permitted by law, we disclaim all implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
@@ -3333,7 +3333,7 @@ const WI_DETAILS = [
   {meta:'Craft Supplies', title:'Every material, hand-packed.', body:'Beads, ribbons, papers, glues, stickers, paints — every supply for the month\'s project. No craft store run, no hunt for a missing stamp.'},
   {meta:'Saint Card Set', title:'Beautifully illustrated. Theologically reviewed.', body:'A set of saint cards tied to the season — each with a vivid illustration on the front and a developmentally-appropriate biography and feast day on the back. Build your child\'s communion of saints over time.'},
   {meta:'Prayer Card', title:'A prayer for the season.', body:'A laminated, family-sized prayer card for the current liturgical season. Prop it in the kitchen. Pray it before dinner. By month\'s end, your kids will know it by heart.'},
-  {meta:'Children\'s Booklet', title:'Curriculum-grade, joy-filled reading.', body:'A short illustrated booklet your child will reach for at bedtime. Written by an early-childhood educator, reviewed by a seminary professor, designed for ages 3–10 with text tiered for shared reading.'},
+  {meta:'Children\'s Booklet', title:'Curriculum-grade, joy-filled reading.', body:'A short illustrated booklet your child will reach for at bedtime. Written by an early-childhood educator, reviewed by a seminary professor, designed for ages 5–10 with text tiered for shared reading.'},
   {meta:'Liturgical Décor', title:'A seasonal piece for your table.', body:'A small, beautiful object — a tabletop crucifix, a Marian icon, an Advent wreath piece — that marks the season visually in your home. The eye learns the faith first.'},
   {meta:'Virtue Card', title:'Character formation, woven with the faith.', body:'A virtue paired to the season and to a saint. Patience with St. Monica. Courage with St. Joan. A printed card with a family practice for the month.'},
   {meta:'Family Ritual', title:'A weekly rhythm you can keep.', body:'A simple, repeatable weekly practice — Sunday lighting, Friday fast, family blessing — designed to become a tradition your kids ask for next year.'}
