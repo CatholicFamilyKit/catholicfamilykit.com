@@ -11,6 +11,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>/* cyrillic-ext */
 @font-face {
   font-family: 'Cormorant Garamond';
@@ -2186,7 +2187,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
       </div>
 
       <div class="box-stage reveal d2">
-        <div class="float-pill f1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 0c-6.6 0-12.6 4-15.1 10.1L198.8 121.6 87.3 163.1c-6.1 2.5-10.1 8.5-10.1 15.1s4 12.6 10.1 15.1l111.5 41.5 42.1 111.5c2.5 6.1 8.5 10.1 15.1 10.1s12.6-4 15.1-10.1l42.1-111.5 111.5-41.5c6.1-2.5 10.1-8.5 10.1-15.1s-4-12.6-10.1-15.1L325.2 121.6 283.1 10.1C280.6 4 274.6 0 268 0z M128 320c-4.4 0-8.4 2.7-10.1 6.8l-28.1 70.3-70.3 28.1c-4.1 1.6-6.8 5.6-6.8 10.1s2.7 8.4 6.8 10.1l70.3 28.1 28.1 70.3c1.6 4.1 5.6 6.8 10.1 6.8s8.4-2.7 10.1-6.8l28.1-70.3 70.3-28.1c4.1-1.6 6.8-5.6 6.8-10.1s-2.7-8.4-6.8-10.1l-70.3-28.1-28.1-70.3c-1.6-4.1-5.6-6.8-10.1-6.8z"/></svg> Marian Season · May</div>
+        <div class="float-pill f1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 0c-6.6 0-12.6 4-15.1 10.1L198.8 121.6 87.3 163.1c-6.1 2.5-10.1 8.5-10.1 15.1s4 12.6 10.1 15.1l111.5 41.5 42.1 111.5c2.5 6.1 8.5 10.1 15.1 10.1s12.6-4 15.1-10.1l42.1-111.5 111.5-41.5c6.1-2.5 10.1-8.5 10.1-15.1s-4-12.6-10.1-15.1L325.2 121.6 283.1 10.1C280.6 4 274.6 0 268 0z M128 320c-4.4 0-8.4 2.7-10.1 6.8l-28.1 70.3-70.3 28.1c-4.1 1.6-6.8 5.6-6.8 10.1s2.7 8.4 6.8 10.1l70.3 28.1 28.1 70.3c1.6 4.1 5.6 6.8 10.1 6.8s8.4-2.7 10.1-6.8l28.1-70.3 70.3-28.1c4.1-1.6 6.8-5.6 6.8-10.1s-2.7-8.4-6.8-10.1l-70.3-28.1-28.1-70.3c-1.6-4.1-5.6-6.8-10.1-6.8z"/></svg> Sacred Heart · June</div>
         <div class="float-pill f2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 0c-6.6 0-12.6 4-15.1 10.1L198.8 121.6 87.3 163.1c-6.1 2.5-10.1 8.5-10.1 15.1s4 12.6 10.1 15.1l111.5 41.5 42.1 111.5c2.5 6.1 8.5 10.1 15.1 10.1s12.6-4 15.1-10.1l42.1-111.5 111.5-41.5c6.1-2.5 10.1-8.5 10.1-15.1s-4-12.6-10.1-15.1L325.2 121.6 283.1 10.1C280.6 4 274.6 0 268 0z M128 320c-4.4 0-8.4 2.7-10.1 6.8l-28.1 70.3-70.3 28.1c-4.1 1.6-6.8 5.6-6.8 10.1s2.7 8.4 6.8 10.1l70.3 28.1 28.1 70.3c1.6 4.1 5.6 6.8 10.1 6.8s8.4-2.7 10.1-6.8l28.1-70.3 70.3-28.1c4.1-1.6 6.8-5.6 6.8-10.1s-2.7-8.4-6.8-10.1l-70.3-28.1-28.1-70.3c-1.6-4.1-5.6-6.8-10.1-6.8z"/></svg> 4.9 / 5 from families</div>
         <div class="box-card">
           <div class="box-seal">
@@ -2316,7 +2317,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
             <h4>The lesson plan that makes you the catechist.</h4>
             <p>A printed guide that walks you through tonight's session — open it, follow it, lead it. Discussion questions tiered by age. No prep. No Googling. The teacher's manual you wish your parish handed you.</p>
           </div>
-          <a class="btn btn-purple btn-arrow" onclick="navigate('subscriptions')">Subscribe &amp; Receive May's Kit</a>
+          <a class="btn btn-purple btn-arrow" onclick="navigate('subscriptions')">Subscribe &amp; Receive June's Kit</a>
         </div>
       </div>
     </div>
@@ -2374,9 +2375,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
               <g id="wheel-marker"></g>
             </svg>
             <div class="lit-wheel-center">
-              <div class="month" id="lwc-month">May 2026</div>
-              <h3 id="lwc-season">Marian Season</h3>
-              <div class="theme-sub" id="lwc-theme">Our Lady of Fatima · Pentecost</div>
+              <div class="month" id="lwc-month">June 2026</div>
+              <h3 id="lwc-season">Sacred Heart</h3>
+              <div class="theme-sub" id="lwc-theme">Corpus Christi · Sacred Heart · Sts. Peter and Paul</div>
               <div class="glyph">✦</div>
             </div>
           </div>
@@ -2554,7 +2555,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
           <p class="ptier">Full Liturgical Year</p>
           <h3>Annual</h3>
           <div class="prow"><span class="psign">$</span><span class="pnum">495</span><span class="pper"> / year</span></div>
-          <p class="psave">Save $104.40 vs monthly · 12 boxes</p>
+          <p class="psave">Save $104.40 vs monthly · 12 kits</p>
           <div class="pdiv"></div>
           <ul class="pfeats">
             <li>12 months of Catholic Family Kits</li>
@@ -2696,7 +2697,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         </div>
         <div class="edge reveal d4">
           <div class="edge-icn red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M352 0H288c-17.7 0-32 14.3-32 32V64H192c-17.7 0-32 14.3-32 32v64H96c-17.7 0-32 14.3-32 32v288c0 17.7 14.3 32 32 32H224V352c0-53 43-96 96-96s96 43 96 96V512H544c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32H480V96c0-17.7-14.3-32-32-32H384V32c0-17.7-14.3-32-32-32zM304 176V128h32v48h48v32H336v48H304V208H256V176h48z"/></svg></div>
-          <h4>Founded by OCIA Converts</h4>
+          <h4>Founded by an OCIA Convert</h4>
           <p>We were our own first customer. We know what it feels like to be a new Catholic trying to build faith at home with no roadmap. This is what we wish had existed.</p>
         </div>
         <div class="edge reveal d5" style="grid-column:1/-1">
@@ -2843,7 +2844,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
   <section class="section white" style="padding-top:80px"><div class="container"><div class="legal reveal">
     <span class="eyebrow">Legal</span>
     <h2>Shipping Policy</h2>
-    <p class="last-up">Last updated: May 2026</p>
+    <p class="last-up">Last updated: June 2026</p>
 
     <div class="legal-callout"><strong>The short version:</strong> Every kit ships free to the contiguous 48 states, leaves our hands between the 25th–27th of the month, and arrives by the 1st. Subscribe by the 15th to receive that month's kit; subscribe after the 15th and we send you the Digital Activity Guide immediately while your first physical kit ships next month.</div>
 
@@ -2910,7 +2911,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
   <section class="section white" style="padding-top:80px"><div class="container"><div class="legal reveal">
     <span class="eyebrow">Legal</span>
     <h2>Returns, Refunds &amp; Cancellation Policy</h2>
-    <p class="last-up">Last updated: May 2026</p>
+    <p class="last-up">Last updated: June 2026</p>
 
     <div class="legal-callout"><strong>In plain language:</strong> Cancel by the 15th and no further kits ship. Cancel after the 15th and one final kit ships before your subscription ends. Kits that have already shipped cannot be returned or refunded — but if anything is wrong with yours, we will always make it right.</div>
 
@@ -2944,7 +2945,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
   <section class="section white" style="padding-top:80px"><div class="container"><div class="legal reveal">
     <span class="eyebrow">Legal</span>
     <h2>Privacy Policy</h2>
-    <p class="last-up">Last updated: May 2026 · Effective: May 2026</p>
+    <p class="last-up">Last updated: June 2026 · Effective: June 2026</p>
 
     <p>Catholic Family Kit® ("CFK", "we", "our", or "us") is committed to protecting your privacy. This Privacy Policy describes the personal information we collect, how we use it, and your rights regarding it. By using our website or subscribing, you agree to the practices described here.</p>
 
@@ -3034,7 +3035,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
   <section class="section white" style="padding-top:80px"><div class="container"><div class="legal reveal">
     <span class="eyebrow">Legal</span>
     <h2>Terms of Service</h2>
-    <p class="last-up">Last updated: May 2026 · Effective: May 2026</p>
+    <p class="last-up">Last updated: June 2026 · Effective: June 2026</p>
 
     <p>These Terms of Service ("Terms") govern your access to and use of catholicfamilykit.com (the "Site") and any related products, subscriptions, or services offered by Catholic Family Kit® ("CFK", "we", "us"). By using the Site or subscribing, you agree to these Terms. If you do not agree, do not use the Site.</p>
 
@@ -3121,7 +3122,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
   <section class="section white" style="padding-top:80px"><div class="container"><div class="legal reveal">
     <span class="eyebrow">Legal</span>
     <h2>Cookie Policy</h2>
-    <p class="last-up">Last updated: May 2026</p>
+    <p class="last-up">Last updated: June 2026</p>
 
     <p>This Cookie Policy explains how Catholic Family Kit® uses cookies and similar tracking technologies on catholicfamilykit.com.</p>
 
@@ -3157,7 +3158,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
   <section class="section white" style="padding-top:80px"><div class="container"><div class="legal reveal">
     <span class="eyebrow">Legal</span>
     <h2>Accessibility Statement</h2>
-    <p class="last-up">Last updated: May 2026</p>
+    <p class="last-up">Last updated: June 2026</p>
 
     <p>Catholic Family Kit® is committed to making our website and products accessible to all members of the Body of Christ — including those with disabilities. We strive to meet <strong>WCAG 2.1 Level AA</strong> standards and continuously work to improve.</p>
 
@@ -3372,23 +3373,22 @@ function renderLiturgicalWheel(){
 
   // Full 12-month data with proper Catholic feast context
   const seasons = [
-    {m:'Jan', s:'Christmas Season',      theme:'Epiphany · Holy Family · Baptism of the Lord',  col:'#e8b84b', bg:'#1a0e34'},
-    {m:'Feb', s:'Ordinary Time',         theme:'Presentation of the Lord · Ash Wednesday',      col:'#3d6e47', bg:'#1a2e1e'},
+    {m:'Jan', s:'Christmas Season',      theme:'Solemnity of Mary · Epiphany · Baptism of the Lord', col:'#e8b84b', bg:'#1a0e34'},
+    {m:'Feb', s:'Ash Wednesday',         theme:'Presentation of the Lord · Ash Wednesday · Lent Begins', col:'#5c3480', bg:'#2a1545'},
     {m:'Mar', s:'Lent',                  theme:'Stations of the Cross · St. Joseph · Annunciation', col:'#5c3480', bg:'#2a1545'},
-    {m:'Apr', s:'Eastertide',            theme:'Resurrection · Divine Mercy Sunday · Ascension', col:'#c9962a', bg:'#2e1c00'},
-    {m:'May', s:'Marian Season',         theme:'Our Lady of Fatima · Pentecost · Confirmation',  col:'#3b1f5e', bg:'#0e0720'},
-    {m:'Jun', s:'Sacred Heart',          theme:'Corpus Christi · Sacred Heart · Nativity of St. John', col:'#c0392b', bg:'#2e0a0a'},
-    {m:'Jul', s:'Precious Blood',        theme:'Precious Blood · St. Peter & Paul · St. Mary Magdalene', col:'#a02020', bg:'#260808'},
-    {m:'Aug', s:'Assumption',            theme:'Assumption · St. Dominic · St. Augustine',       col:'#3b1f5e', bg:'#0e0720'},
-    {m:'Sep', s:'Ordinary Time',         theme:'Birth of Mary · Holy Name of Mary · St. Michael', col:'#3d6e47', bg:'#1a2e1e'},
-    {m:'Oct', s:'Holy Rosary',           theme:'Holy Rosary · St. Francis · All Hallows Eve',    col:'#5c3480', bg:'#2a1545'},
-    {m:'Nov', s:'All Saints & Souls',    theme:'All Saints · All Souls · Christ the King',       col:'#a87820', bg:'#2a1e00'},
-    {m:'Dec', s:'Advent & Christmas',    theme:'Advent Wreath · Immaculate Conception · Nativity', col:'#5c3480', bg:'#2a1545'}
+    {m:'Apr', s:'Eastertide',            theme:'Resurrection · Divine Mercy · St. Mark', col:'#c9962a', bg:'#2e1c00'},
+    {m:'May', s:'Marian Season',         theme:'Ascension of the Lord · Pentecost · Our Lady of Fatima', col:'#3b1f5e', bg:'#0e0720'},
+    {m:'Jun', s:'Sacred Heart',          theme:'Corpus Christi · Sacred Heart · Sts. Peter and Paul', col:'#c0392b', bg:'#2e0a0a'},
+    {m:'Jul', s:'Precious Blood',        theme:'Our Lady of Mt. Carmel · St. Apollinaris · St. Maria Goretti', col:'#a02020', bg:'#260808'},
+    {m:'Aug', s:'Assumption',            theme:'Assumption · St. Bartholomew · St. Augustine', col:'#3b1f5e', bg:'#0e0720'},
+    {m:'Sep', s:'Archangels',            theme:'St. Michael Archangel · Exaltation of the Cross · Birth of Mary', col:'#3d6e47', bg:'#1a2e1e'},
+    {m:'Oct', s:'Holy Rosary',           theme:'Sts. Simon and Jude · Holy Rosary · All Hallows Eve', col:'#5c3480', bg:'#2a1545'},
+    {m:'Nov', s:'All Saints & Souls',    theme:'All Saints · All Souls · Christ the King', col:'#a87820', bg:'#2a1e00'},
+    {m:'Dec', s:'Advent & Christmas',    theme:'Immaculate Conception · Nativity · Holy Family', col:'#5c3480', bg:'#2a1545'}
   ];
-
   const cx=200, cy=200, r=188, ri=148;
   const now = new Date();
-  const cm = now.getMonth(); // 0-11
+  const cm = 5; // Highlight June for the current Sacred Heart product launch
   let activeMonth = cm;
 
   function updateCenter(idx) {
@@ -3397,7 +3397,7 @@ function renderLiturgicalWheel(){
     const lwcMonth = document.getElementById('lwc-month');
     const lwcSeason = document.getElementById('lwc-season');
     const lwcTheme = document.getElementById('lwc-theme');
-    if(lwcMonth) lwcMonth.textContent = monthName;
+    if(lwcMonth) lwcMonth.textContent = `${monthName} 2026`;
     if(lwcSeason) { lwcSeason.textContent = s.s; lwcSeason.style.color = s.col; }
     if(lwcTheme) lwcTheme.textContent = s.theme;
   }
