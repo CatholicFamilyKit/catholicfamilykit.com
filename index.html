@@ -2567,7 +2567,56 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
 
       <div class="text-center" style="margin-top:42px;">
         <span class="pricing-footnote"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8z"/></svg> <strong>All plans:</strong> Free US shipping · No hidden fees · Seminary-reviewed · Cancel anytime</span>
-        <div class="reveal" style="max-width:780px;margin:30px auto 0;display:grid;gap:14px;"><div style="background:var(--cream-dark);border:1px solid var(--border);border-radius:16px;padding:18px 22px;font-size:14px;color:var(--ink-2);line-height:1.65;"><strong style="color:var(--ink)">When your first kit arrives:</strong> Our monthly cutoff and billing date is the <strong>15th</strong>. Subscribe <strong>on or before the 15th</strong> and you'll receive that month's kit — shipped the 25th–27th to arrive by the 1st. Subscribe <strong>after the 15th</strong> and your first kit will be <strong>next month's kit, arriving on the 1st of the following month</strong>. Your plan then renews on the 15th each cycle until you cancel.</div><div style="text-align:center;font-size:14px;color:var(--ink-2);">Already a member? <a data-portal href="#" style="color:var(--gold);text-decoration:underline;font-weight:600;cursor:pointer;">Manage or cancel your subscription</a> anytime — no phone call required.</div><div style="display:flex;gap:12px;align-items:flex-start;background:#FFF6F4;border:1px solid rgba(168,50,40,0.28);border-radius:16px;padding:16px 20px;font-size:13.5px;color:var(--ink-2);line-height:1.55;"><span aria-hidden="true" style="font-size:18px;line-height:1.2;">⚠️</span><div><strong style="color:#7B1F1A;">Choking hazard — small parts.</strong> Kits are designed for children ages <strong>7–11</strong> with adult guidance. Some items contain small parts and are <strong>not suitable for children under 3 years</strong>. Adult supervision required. See our <a onclick="navigate('terms')" style="cursor:pointer;text-decoration:underline;color:inherit;">Terms</a> for full safety details.</div></div></div>
+        <style>
+        .cfk-bt{font-family:var(--sans);}
+        .cfk-bt-card{background:var(--cream-dark);border:1px solid var(--border);border-radius:16px;padding:24px 26px;}
+        .cfk-bt-h{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--ink);text-align:center;margin:0 0 4px;line-height:1.2;}
+        .cfk-bt-sub{font-size:13.5px;color:var(--ink-3);line-height:1.6;text-align:center;margin:0 auto 18px;max-width:620px;}
+        .cfk-bt-bill{display:flex;align-items:center;justify-content:center;gap:9px;text-align:left;background:linear-gradient(135deg,#27144a,#3b1f5e);color:#fdf3dc;border:1px solid rgba(201,150,42,0.4);border-radius:14px;padding:13px 20px;font-size:13.5px;line-height:1.5;font-weight:500;margin:0 auto 22px;max-width:660px;}
+        .cfk-bt-bill b{color:var(--gold-bright);}
+        .cfk-bt-bill .star{font-size:17px;color:var(--gold-bright);flex:none;}
+        .cfk-bt-row{margin-bottom:20px;}
+        .cfk-bt-row:last-child{margin-bottom:0;}
+        .cfk-bt-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:14px;}
+        .cfk-bt-tag.a{background:var(--gold-pale);color:var(--gold-muted);border:1px solid rgba(201,150,42,0.45);}
+        .cfk-bt-tag.b{background:var(--purple-light);color:var(--purple);border:1px solid rgba(92,52,128,0.3);}
+        .cfk-bt-steps{display:flex;align-items:flex-start;}
+        .cfk-bt-step{flex:1;text-align:center;position:relative;padding:0 6px;}
+        .cfk-bt-step .dot{position:relative;z-index:1;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 9px;font-weight:700;font-size:15px;box-shadow:0 4px 12px rgba(59,31,94,0.18);}
+        .cfk-bt-row.a .dot{background:linear-gradient(135deg,#c9962a,#e8b84b);color:#2a1a05;}
+        .cfk-bt-row.b .dot{background:linear-gradient(135deg,#5c3480,#3b1f5e);color:#fff;}
+        .cfk-bt-step .lbl{font-size:13px;font-weight:600;color:var(--ink);line-height:1.3;}
+        .cfk-bt-step .sub{font-size:11.5px;color:var(--ink-3);line-height:1.35;margin-top:3px;}
+        .cfk-bt-step:not(:last-child)::after{content:"";position:absolute;top:18px;left:50%;width:100%;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 5px,transparent 5px 11px);z-index:0;}
+        @media(max-width:560px){
+          .cfk-bt-steps{flex-direction:column;}
+          .cfk-bt-step{display:flex;text-align:left;align-items:center;gap:13px;padding:8px 0;}
+          .cfk-bt-step .dot{margin:0;flex:none;}
+          .cfk-bt-step:not(:last-child)::after{top:46px;left:18px;width:2px;height:100%;}
+          .cfk-bt-bill{flex-direction:row;}
+        }
+        </style>
+        <div class="reveal" style="max-width:900px;margin:30px auto 0;display:grid;gap:14px;"><div class="cfk-bt cfk-bt-card">
+          <h3 class="cfk-bt-h">When you're billed &amp; when your first kit arrives</h3>
+          <p class="cfk-bt-sub">Simple and predictable. Here's exactly how the timing works.</p>
+          <div class="cfk-bt-bill"><span class="star">✦</span><span>You're <b>billed the day you subscribe</b>, then on that <b>same date each month</b> until you cancel. The 15th below is only our monthly <b>order cutoff</b> — it decides which kit is your first, not when you're billed.</span></div>
+          <div class="cfk-bt-row a">
+            <span class="cfk-bt-tag a">Subscribe on or before the 15th</span>
+            <div class="cfk-bt-steps">
+              <div class="cfk-bt-step"><div class="dot">1</div><div class="lbl">You subscribe</div><div class="sub">Billed today</div></div>
+              <div class="cfk-bt-step"><div class="dot">2</div><div class="lbl">Ships 25th–27th</div><div class="sub">This month's kit · USPS Priority</div></div>
+              <div class="cfk-bt-step"><div class="dot">3</div><div class="lbl">Arrives by the 1st</div><div class="sub">In time for the new month</div></div>
+            </div>
+          </div>
+          <div class="cfk-bt-row b">
+            <span class="cfk-bt-tag b">Subscribe after the 15th</span>
+            <div class="cfk-bt-steps">
+              <div class="cfk-bt-step"><div class="dot">1</div><div class="lbl">You subscribe</div><div class="sub">Billed today</div></div>
+              <div class="cfk-bt-step"><div class="dot">2</div><div class="lbl">Next month's kit ships 25th–27th</div><div class="sub">Your first kit is next month's</div></div>
+              <div class="cfk-bt-step"><div class="dot">3</div><div class="lbl">Arrives by the 1st</div><div class="sub">Of the following month</div></div>
+            </div>
+          </div>
+        </div><div style="text-align:center;font-size:14px;color:var(--ink-2);">Already a member? <a data-portal href="#" style="color:var(--gold);text-decoration:underline;font-weight:600;cursor:pointer;">Manage or cancel your subscription</a> anytime — no phone call required.</div><div style="display:flex;gap:12px;align-items:flex-start;background:#FFF6F4;border:1px solid rgba(168,50,40,0.28);border-radius:16px;padding:16px 20px;font-size:13.5px;color:var(--ink-2);line-height:1.55;"><span aria-hidden="true" style="font-size:18px;line-height:1.2;">⚠️</span><div><strong style="color:#7B1F1A;">Choking hazard — small parts.</strong> Kits are designed for children ages <strong>7–11</strong> with adult guidance. Some items contain small parts and are <strong>not suitable for children under 3 years</strong>. Adult supervision required. See our <a onclick="navigate('terms')" style="cursor:pointer;text-decoration:underline;color:inherit;">Terms</a> for full safety details.</div></div></div>
       </div>
     </div>
   </section>
@@ -2746,9 +2795,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
 
           <div class="faq-item open" data-cat="content"><div class="faq-q" onclick="toggleFaq(this)">What ages is Catholic Family Kit designed for?<span class="faq-icon">+</span></div><div class="faq-a"><p>Designed for families with children ages 7–11. Chelsea builds each activity to work across this range — a 7-year-old and an 11-year-old can do the same activity at different depths. The Activity Guide includes discussion questions tiered by age. Many families tell us their 12–15 year olds engage equally well, especially in discussion.</p></div></div>
 
-          <div class="faq-item" data-cat="ship"><div class="faq-q" onclick="toggleFaq(this)">When does the kit ship? When will it arrive?<span class="faq-icon">+</span></div><div class="faq-a"><p>We ship between the 25th–27th of each month via USPS Priority Mail so kits arrive by the 1st of the following month — giving you all month to use it in rhythm. Subscriptions renew on the 15th. If you subscribe after the 15th, your first physical kit ships the following month. All plans include free US shipping.</p></div></div>
+          <div class="faq-item" data-cat="ship"><div class="faq-q" onclick="toggleFaq(this)">When does the kit ship? When will it arrive?<span class="faq-icon">+</span></div><div class="faq-a"><p>We ship between the 25th–27th of each month via USPS Priority Mail so kits arrive by the 1st of the following month — giving you all month to use it in rhythm. You're billed the day you subscribe and on that same date each month; the 15th is our monthly order cutoff, not your billing date. If you subscribe after the 15th, your first physical kit is next month's kit. All plans include free US shipping.</p></div></div>
 
-          <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">Can I cancel? Are there contracts?<span class="faq-icon">+</span></div><div class="faq-a"><p>No contracts, ever. Cancel anytime before the 15th of the month and you won't be charged for the following kit. Cancel after the 15th and you'll receive one more kit (already billed) before your subscription ends. You can also skip individual months instead of canceling. Founding Member pricing is locked for as long as you maintain your subscription. You can <a data-portal href="#" style="cursor:pointer;text-decoration:underline">cancel or manage your subscription online</a> anytime.</p></div></div>
+          <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">Can I cancel? Are there contracts?<span class="faq-icon">+</span></div><div class="faq-a"><p>No contracts, ever. Cancel anytime — the 15th is our cutoff for each monthly kit. Cancel on or before the 15th and your next kit won't be prepared or shipped. Cancel after the 15th and you'll receive that month's kit (already locked in) before your subscription ends. You can also skip individual months instead of canceling. Founding Member pricing is locked for as long as you maintain your subscription. You can <a data-portal href="#" style="cursor:pointer;text-decoration:underline">cancel or manage your subscription online</a> anytime.</p></div></div>
 
           <div class="faq-item" data-cat="sub"><div class="faq-q" onclick="toggleFaq(this)">How do I cancel?<span class="faq-icon">+</span></div><div class="faq-a"><p>The quickest way is to <a data-portal href="#" style="cursor:pointer;text-decoration:underline">manage or cancel your subscription online</a> through our secure billing portal. You can also visit our <a onclick="navigate('contact')" style="cursor:pointer;text-decoration:underline">contact page</a> or email <a href="mailto:hello@catholicfamilykit.com">hello@catholicfamilykit.com</a> with your name, address, and email requesting to cancel and we will be sure to do it that day!</p></div></div>
 
@@ -2910,11 +2959,11 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
 
     <h3>2. Subscription Cancellation Rules</h3>
     <p><strong>Cancel on or before the 15th of the month:</strong> your subscription ends immediately. No further charge. No kit ships.</p>
-    <p><strong>Cancel after the 15th:</strong> that month's kit has already been billed and assembled. It will ship on the 25th–27th as normal. Your subscription then ends — no further kits or charges follow.</p>
+    <p><strong>Cancel after the 15th:</strong> that month's kit has already been locked in and assembled. It will ship on the 25th–27th as normal. Your subscription then ends — no further kits or charges follow.</p>
     <p>You may also <strong>skip individual months</strong> rather than canceling outright. Skip requests must be received before the 15th cutoff for that month.</p>
 
     <h3>3. No Refunds on Processed Payments</h3>
-    <p>Monthly subscription payments are non-refundable once processed on the 15th. Annual subscription payments are non-refundable after the first kit for the year has shipped. Annual subscribers who cancel mid-year are not entitled to a pro-rata refund after any individual month's kit has shipped.</p>
+    <p>Monthly subscription payments are non-refundable once the payment has been processed on your billing date (the date you subscribed). Annual subscription payments are non-refundable after the first kit for the year has shipped. Annual subscribers who cancel mid-year are not entitled to a pro-rata refund after any individual month's kit has shipped.</p>
 
     <h3>4. Founding Member Rate — Important Notice</h3>
     <p>Founding Members who cancel their subscription permanently forfeit the $39.95/month locked rate. Re-subscribing after cancellation is at the then-current regular rate. The Founding rate is non-transferable and applies only to the original, continuously-active account.</p>
@@ -3260,11 +3309,16 @@ const EMAILJS_SERVICE_ID  = 'service_tcy0kxp';
 const EMAILJS_TEMPLATE_ID = 'template_zdxbips';
 const EMAILJS_PUBLIC_KEY  = 'Sv0abY2oSbsBnSwLw';
 
-// ── Klaviyo newsletter list (footer subscribe box) ──
-// Public API Key / Site ID: Klaviyo → Settings → Account → API Keys → "Public API Key".
-// List ID: Klaviyo → Audience → Lists & Segments → open your list → 6-char ID in Settings/URL.
-const KLAVIYO_COMPANY_ID = 'WcyvAw'; // Klaviyo Public API Key / Site ID
-const KLAVIYO_LIST_ID    = 'RXsQw5'; // Newsletter subscriber list
+// ── Klaviyo newsletter list (footer "monthly note" subscribe box) ──
+// ⚠️ VERIFY BOTH VALUES BELOW are from THIS Klaviyo account, or the box fails silently.
+// COMPANY_ID = your 6-char Public API Key / Site ID:
+//   Klaviyo → Settings → Account → API keys → "Public API key".
+// LIST_ID = the list new subscribers should join (6-char ID):
+//   Klaviyo → Audience → Lists & Segments → open the list → "Settings" tab (or the
+//   /list/XXXXXX part of the URL). Make sure this list is set to SINGLE opt-in if you
+//   want subscribers to appear immediately without clicking a confirmation email.
+const KLAVIYO_COMPANY_ID = 'WcyvAw'; // ← Public API Key / Site ID (verify this)
+const KLAVIYO_LIST_ID    = 'RXsQw5'; // ← Newsletter list ID (verify this)
 
 // ── Stripe Customer Portal (self-serve manage/cancel) ──
 // Stripe → Settings → Billing → Customer portal → activate the login link, then paste it below.
@@ -3512,28 +3566,62 @@ renderLiturgicalWheel();
 // Newsletter
 function subscribeNewsletter(form){
   const input = form.querySelector('input[type="email"]');
+  const btn   = form.querySelector('button[type="submit"]');
   const email = (input ? input.value : '').trim();
   if(!email) return;
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showToast('Please enter a valid email address.'); return; }
-  const done = function(){ showToast('✦ Thank you — you\'re on the list!'); form.reset(); };
-  // If Klaviyo isn't configured yet, don't break the box — acknowledge and warn in console.
-  if(KLAVIYO_COMPANY_ID === 'YOUR_PUBLIC_API_KEY' || KLAVIYO_LIST_ID === 'YOUR_LIST_ID'){
-    console.warn('Klaviyo not configured: set KLAVIYO_COMPANY_ID and KLAVIYO_LIST_ID.'); done(); return;
+
+  // Guard: if Klaviyo isn't configured, fail loudly in console instead of faking success.
+  if(!KLAVIYO_COMPANY_ID || !KLAVIYO_LIST_ID ||
+     KLAVIYO_COMPANY_ID === 'YOUR_PUBLIC_API_KEY' || KLAVIYO_LIST_ID === 'YOUR_LIST_ID'){
+    console.error('Klaviyo not configured: set KLAVIYO_COMPANY_ID (Public API Key) and KLAVIYO_LIST_ID.');
+    showToast('Sorry — sign-up is briefly unavailable. Please email hello@catholicfamilykit.com.');
+    return;
   }
-  // Subscribe the email to the Klaviyo list (client-side, public key only).
+
+  // Lock the button so a slow network can't trigger double submits.
+  if(btn){ btn.disabled = true; btn.dataset._label = btn.textContent; btn.textContent = 'Adding…'; }
+  const restore = function(){ if(btn){ btn.disabled = false; btn.textContent = btn.dataset._label || 'Subscribe'; } };
+
+  // Subscribe the email to the Klaviyo list (client-side, public key only — safe to expose).
+  // The subscriptions block explicitly opts them into EMAIL marketing so they actually
+  // subscribe (not just get created as a profile). Klaviyo honors the list's opt-in setting.
   fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(KLAVIYO_COMPANY_ID), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
     body: JSON.stringify({
       data: {
         type: 'subscription',
-        attributes: { profile: { data: { type: 'profile', attributes: { email: email } } } },
+        attributes: {
+          profile: {
+            data: {
+              type: 'profile',
+              attributes: {
+                email: email,
+                subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } }
+              }
+            }
+          }
+        },
         relationships: { list: { data: { type: 'list', id: KLAVIYO_LIST_ID } } }
       }
     })
   })
-  .then(function(res){ if(!(res.ok || res.status === 202)){ res.text().then(function(t){ console.error('Klaviyo subscribe failed:', res.status, t); }); } done(); })
-  .catch(function(err){ console.error('Klaviyo subscribe error:', err); done(); });
+  .then(function(res){
+    if(res.ok || res.status === 202){
+      showToast('✦ Thank you — you\'re on the list!');
+      form.reset();
+    } else {
+      res.text().then(function(t){ console.error('Klaviyo subscribe failed:', res.status, t); });
+      showToast('Hmm — that didn\'t go through. Please try again or email hello@catholicfamilykit.com.');
+    }
+    restore();
+  })
+  .catch(function(err){
+    console.error('Klaviyo subscribe error:', err);
+    showToast('Network hiccup — please try again in a moment.');
+    restore();
+  });
 }
 
 // Toast
