@@ -1906,7 +1906,7 @@ em{font-style:italic;}
 .pfeats li::before{content:"✓";color:var(--green-mid);font-weight:700;flex-shrink:0;margin-top:1px;}
 .pfeats li.no::before{content:"–";color:var(--ink-4);}
 .pfeats li.no{color:var(--ink-4);text-decoration:line-through;}
-.pcard .btn{width:100%;justify-content:center;}
+.pcard .btn{justify-content:center;}
 .stripe-btn-wrap{width:100%;display:flex;justify-content:center;margin-top:4px;}
 .stripe-btn-wrap stripe-buy-button{width:100%;}
 .pnote{font-size:11.5px;color:var(--ink-3);text-align:center;margin-top:10px;}
@@ -2127,7 +2127,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
 
 <!-- ANNOUNCE -->
 <div class="announce">
-  <strong>✦ Founding Member rate</strong> — Lock in <strong>$39.95/mo</strong> forever. Only <strong id="ann-spots">12</strong> spots remain. <a onclick="navigate('subscriptions')">Reserve yours →</a>
+  <strong>✦ Founding Member rate</strong> — Lock in <strong>$39.95/mo</strong> forever. Only <strong id="ann-spots">10</strong> spots remain. <a onclick="navigate('subscriptions')">Reserve yours →</a>
 </div>
 
 <!-- NAV -->
@@ -2239,7 +2239,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="spots-counter reveal d1">
           <h6>Founding Spots</h6>
           <div class="spots-dots" id="spots-dots"></div>
-          <div class="num" id="spots-num">12</div>
+          <div class="num" id="spots-num">10</div>
           <small>of 20 spots remaining</small>
         </div>
         <div class="reveal d2">
@@ -2513,8 +2513,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
             <li class="no">Early access to new products</li>
           </ul>
           <div class="stripe-btn-wrap">
-            <button class="btn btn-gold btn-arrow cfk-buy" data-price="price_1TVEHfQqTHTqFrY6IxSeAepk" style="width:100%;justify-content:center;">Subscribe — $49.95/mo</button>
-            <p class="pauto">Auto-renews at <strong>$49.95/mo on the 1st</strong> until canceled. Cancel anytime.</p>
+            <button class="btn btn-gold btn-arrow cfk-buy" data-price="price_1TVEHfQqTHTqFrY6IxSeAepk">Subscribe — $49.95/mo</button>
           </div>
         </div>
 
@@ -2537,8 +2536,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
             <li>Direct line to John &amp; Chelsea</li>
           </ul>
           <div class="stripe-btn-wrap">
-            <button class="btn btn-gold btn-arrow cfk-buy" data-price="price_1TVDGiQqTHTqFrY6RgIapHdZ" style="width:100%;justify-content:center;">Lock in Founding — $39.95/mo</button>
-          <p class="pauto">Auto-renews at <strong>$39.95/mo on the 1st</strong> until canceled. Cancel anytime.</p>
+            <button class="btn btn-gold btn-arrow cfk-buy" data-price="price_1TVDGiQqTHTqFrY6RgIapHdZ">Lock in Founding — $39.95/mo</button>
           </div>
           <p class="pnote">Limited spots. Once full, this rate closes permanently.</p>
         </div>
@@ -2562,8 +2560,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
             <li class="no">Founding member price lock</li>
           </ul>
           <div class="stripe-btn-wrap">
-            <button class="btn btn-gold btn-arrow cfk-buy" data-price="price_1TVDUoQqTHTqFrY6MmEs7Qi9" style="width:100%;justify-content:center;">Subscribe Annual — $495/yr</button>
-            <p class="pauto">Auto-renews at <strong>$495/yr</strong> on your renewal date until canceled. Cancel anytime.</p>
+            <button class="btn btn-gold btn-arrow cfk-buy" data-price="price_1TVDUoQqTHTqFrY6MmEs7Qi9">Subscribe Annual — $495/yr</button>
           </div>
         </div>
       </div>
@@ -2571,8 +2568,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="text-center" style="margin-top:42px;">
         <span class="pricing-footnote"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8z"/></svg> <strong>All plans:</strong> Free US shipping · No hidden fees · Seminary-reviewed · Cancel anytime</span>
         <style>
-        .pauto{font-family:var(--sans);font-size:11.5px;line-height:1.4;color:var(--ink-3);text-align:center;margin:9px 2px 0;}
-        .pauto strong{color:var(--ink-2);font-weight:600;}
         .cfk-bt{font-family:var(--sans);}
         .cfk-bt-card{background:var(--cream-dark);border:1px solid var(--border);border-radius:16px;padding:24px 26px;}
         .cfk-bt-h{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--ink);text-align:center;margin:0 0 4px;line-height:1.2;}
@@ -3432,8 +3427,8 @@ function renderSpots(){
   const dots = document.getElementById('spots-dots');
   if(!dots) return;
   let html = '';
-  for(let i=0;i<8;i++) html += '<div class="dot taken"></div>';
-  for(let i=0;i<12;i++) html += '<div class="dot open"></div>';
+  for(let i=0;i<10;i++) html += '<div class="dot taken"></div>';
+  for(let i=0;i<10;i++) html += '<div class="dot open"></div>';
   dots.innerHTML = html;
 }
 renderSpots();
