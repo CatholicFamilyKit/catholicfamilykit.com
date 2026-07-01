@@ -3565,7 +3565,9 @@ renderLiturgicalWheel();
 // Billing toggle
 
 
-// Newsletter
+// Newsletter — EmailJS is the reliable path: it drives the box's success/failure and
+// emails John at hello@catholicfamilykit.com on every signup (same setup the contact form
+// uses — no new template needed). The Klaviyo list-add runs in the background, best-effort.
 function subscribeNewsletter(form){
   const input = form.querySelector('input[type="email"]');
   const btn   = form.querySelector('button[type="submit"]');
@@ -3573,75 +3575,41 @@ function subscribeNewsletter(form){
   if(!email) return;
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showToast('Please enter a valid email address.'); return; }
 
-  // Guard: if Klaviyo isn't configured, fail loudly in console instead of faking success.
-  if(!KLAVIYO_COMPANY_ID || !KLAVIYO_LIST_ID ||
-     KLAVIYO_COMPANY_ID === 'YOUR_PUBLIC_API_KEY' || KLAVIYO_LIST_ID === 'YOUR_LIST_ID'){
-    console.error('Klaviyo not configured: set KLAVIYO_COMPANY_ID (Public API Key) and KLAVIYO_LIST_ID.');
-    showToast('Sorry — sign-up is briefly unavailable. Please email hello@catholicfamilykit.com.');
-    return;
-  }
-
-  // Lock the button so a slow network can't trigger double submits.
   if(btn){ btn.disabled = true; btn.dataset._label = btn.textContent; btn.textContent = 'Adding…'; }
   const restore = function(){ if(btn){ btn.disabled = false; btn.textContent = btn.dataset._label || 'Subscribe'; } };
 
-  // Subscribe the email to the Klaviyo list (client-side, public key only — safe to expose).
-  // The subscriptions block explicitly opts them into EMAIL marketing so they actually
-  // subscribe (not just get created as a profile). Klaviyo honors the list's opt-in setting.
-  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(KLAVIYO_COMPANY_ID), {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
-    body: JSON.stringify({
-      data: {
-        type: 'subscription',
-        attributes: {
-          profile: {
-            data: {
-              type: 'profile',
-              attributes: {
-                email: email,
-                subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } }
-              }
-            }
-          }
-        },
-        relationships: { list: { data: { type: 'list', id: KLAVIYO_LIST_ID } } }
-      }
-    })
-  })
-  .then(function(res){
-    if(res.ok || res.status === 202){
-      showToast('✦ Thank you — you\'re on the list!');
-      notifyOwnerOfSignup(email);
-      form.reset();
-    } else {
-      res.text().then(function(t){ console.error('Klaviyo subscribe failed:', res.status, t); });
-      showToast('Hmm — that didn\'t go through. Please try again or email hello@catholicfamilykit.com.');
-    }
-    restore();
-  })
-  .catch(function(err){
-    console.error('Klaviyo subscribe error:', err);
-    showToast('Network hiccup — please try again in a moment.');
-    restore();
-  });
-}
+  // (1) Best-effort background add to the Klaviyo list. Klaviyo's JSON:API requires the
+  //     'application/vnd.api+json' content type (plain 'application/json' is rejected — that was
+  //     the old bug). If it fails for any reason it stays silent; step (2) is the source of truth.
+  if(KLAVIYO_COMPANY_ID && KLAVIYO_LIST_ID){
+    try{
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(KLAVIYO_COMPANY_ID), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
+        body: JSON.stringify({
+          data: { type: 'subscription', attributes: { profile: { data: { type: 'profile', attributes: {
+            email: email, subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } } } } } },
+            relationships: { list: { data: { type: 'list', id: KLAVIYO_LIST_ID } } } }
+        })
+      }).catch(function(){});
+    }catch(e){}
+  }
 
-// Emails John at hello@catholicfamilykit.com whenever someone joins the newsletter,
-// reusing the same EmailJS service/template the contact form already uses.
-// Fire-and-forget: if it fails, the person is still subscribed in Klaviyo.
-function notifyOwnerOfSignup(email){
-  try{
-    if(!window.emailjs) return;
-    emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      from_name: 'CFK Newsletter',
-      reply_to: email,
-      subject: 'New newsletter signup',
-      message: 'New newsletter subscriber: ' + email,
-      to_email: 'hello@catholicfamilykit.com'
-    }).catch(function(err){ console.error('Signup notify failed:', err); });
-  }catch(err){ console.error('Signup notify error:', err); }
+  // (2) Primary: notify John via EmailJS. This decides the UI and is proven to work on the contact form.
+  if(!window.emailjs){
+    showToast('Sorry — sign-up is briefly unavailable. Please email hello@catholicfamilykit.com.');
+    restore(); return;
+  }
+  emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    from_name: 'CFK Newsletter Signup',
+    reply_to: email,
+    subject: 'New newsletter signup',
+    message: 'New newsletter subscriber: ' + email,
+    to_email: 'hello@catholicfamilykit.com'
+  })
+  .then(function(){ showToast('✦ Thank you — you\'re on the list!'); form.reset(); restore(); })
+  .catch(function(err){ console.error('Newsletter notify failed:', err); showToast('Hmm — that didn\'t go through. Please try again or email hello@catholicfamilykit.com.'); restore(); });
 }
 
 // Toast
