@@ -2127,7 +2127,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
 
 <!-- ANNOUNCE -->
 <div class="announce">
-  <strong>✦ Founding Member rate</strong> — Lock in <strong>$39.95/mo</strong> forever. Only <strong id="ann-spots">10</strong> spots remain. <a onclick="navigate('subscriptions')">Reserve yours →</a>
+  <strong>✦ Founding Member rate</strong> — Lock in <strong>$39.95/mo</strong> forever. Only <strong id="ann-spots">14</strong> spots remain. <a onclick="navigate('subscriptions')">Reserve yours →</a>
 </div>
 
 <!-- NAV -->
@@ -2239,7 +2239,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="spots-counter reveal d1">
           <h6>Founding Spots</h6>
           <div class="spots-dots" id="spots-dots"></div>
-          <div class="num" id="spots-num">10</div>
+          <div class="num" id="spots-num">14</div>
           <small>of 20 spots remaining</small>
         </div>
         <div class="reveal d2">
@@ -3427,8 +3427,8 @@ function renderSpots(){
   const dots = document.getElementById('spots-dots');
   if(!dots) return;
   let html = '';
-  for(let i=0;i<10;i++) html += '<div class="dot taken"></div>';
-  for(let i=0;i<10;i++) html += '<div class="dot open"></div>';
+  for(let i=0;i<6;i++) html += '<div class="dot taken"></div>';
+  for(let i=0;i<14;i++) html += '<div class="dot open"></div>';
   dots.innerHTML = html;
 }
 renderSpots();
@@ -3612,6 +3612,7 @@ function subscribeNewsletter(form){
   .then(function(res){
     if(res.ok || res.status === 202){
       showToast('✦ Thank you — you\'re on the list!');
+      notifyOwnerOfSignup(email);
       form.reset();
     } else {
       res.text().then(function(t){ console.error('Klaviyo subscribe failed:', res.status, t); });
@@ -3624,6 +3625,23 @@ function subscribeNewsletter(form){
     showToast('Network hiccup — please try again in a moment.');
     restore();
   });
+}
+
+// Emails John at hello@catholicfamilykit.com whenever someone joins the newsletter,
+// reusing the same EmailJS service/template the contact form already uses.
+// Fire-and-forget: if it fails, the person is still subscribed in Klaviyo.
+function notifyOwnerOfSignup(email){
+  try{
+    if(!window.emailjs) return;
+    emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      from_name: 'CFK Newsletter',
+      reply_to: email,
+      subject: 'New newsletter signup',
+      message: 'New newsletter subscriber: ' + email,
+      to_email: 'hello@catholicfamilykit.com'
+    }).catch(function(err){ console.error('Signup notify failed:', err); });
+  }catch(err){ console.error('Signup notify error:', err); }
 }
 
 // Toast
