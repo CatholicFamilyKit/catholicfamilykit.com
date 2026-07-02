@@ -2409,7 +2409,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
             <span class="cred"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8z"/></svg> Seminary Review</span>
             <span class="cred"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg> Catholic Family</span>
           </div>
-          <div style="margin-top:30px"><a class="btn btn-outline btn-arrow" onclick="navigate('about')">Read Our Full Story</a></div>
+          <div style="margin-top:30px;display:flex;gap:20px;align-items:center;flex-wrap:wrap"><a class="btn btn-outline btn-arrow" onclick="navigate('about')">Read Our Full Story</a><a class="cfk-support-open" style="font-family:var(--sans);font-size:14px;font-weight:600;color:var(--gold-muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;">Support our mission ☕</a></div>
         </div>
       </div>
     </div>
@@ -2763,6 +2763,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">Today</div><h4>Helping families across the country.</h4><p>Hundreds of Catholic families now use CFK to anchor their week. We're just getting started — and we'd love your family to join us.</p></div>
       </div>
       <div class="text-center" style="margin-top:48px;"><a class="btn btn-gold btn-arrow" onclick="navigate('subscriptions')">Join a Family Like Yours</a></div>
+      <div class="text-center" style="margin-top:18px;"><a class="cfk-support-open" style="font-family:var(--sans);font-size:14px;font-weight:600;color:var(--gold-muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;">Or support our mission with a one-time gift ☕</a></div>
     </div>
   </section>
 
@@ -3339,6 +3340,14 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;back
           <li><a onclick="navigate('accessibility')">Accessibility</a></li>
         </ul>
       </div>
+    </div>
+
+    <div class="f-support">
+      <button type="button" class="cfk-support-open cfk-sup-btn" aria-haspopup="dialog" aria-controls="cfk-support-modal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true" style="width:1.05em;height:1.05em;vertical-align:-0.15em"><path d="M88 0C74.7 0 64 10.7 64 24c0 38.9 23.4 59.4 39.1 73.1l1.8 1.6C120.1 112.1 128 119.6 128 136c0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.8-1.6C119.9 47.9 112 40.4 112 24c0-13.3-10.7-24-24-24zM32 192c-17.7 0-32 14.3-32 32l0 192c0 53 43 96 96 96l192 0c53 0 96-43 96-96l16 0c61.9 0 112-50.1 112-112s-50.1-112-112-112l-48 0L32 192zm352 64l48 0c26.5 0 48 21.5 48 48s-21.5 48-48 48l-16 0 0-96zM232 0c-13.3 0-24 10.7-24 24c0 38.9 23.4 59.4 39.1 73.1l1.8 1.6C264.1 112.1 272 119.6 272 136c0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.8-1.6C263.9 47.9 256 40.4 256 24c0-13.3-10.7-24-24-24z"/></svg>
+        Support Our Mission
+      </button>
+      <span class="f-support-note">Help two Catholic parents keep building — buy us a coffee. Not a tax-deductible donation, just a gift of support. ✝︎</span>
     </div>
 
     <div class="footer-bottom">
@@ -3986,17 +3995,206 @@ document.addEventListener('click', e=>{
     e.preventDefault();
     var price = b.getAttribute("data-price");
     if (!price) return;
-    var email = cfkGetEmail();
-    if(email){
-      trackStartedCheckout(email, price, b);
-      startCheckout(price, b);
-    } else {
-      pendingCheckout = { price: price, btn: b };
-      openEmailGate();
-    }
+    // Straight to Stripe — no pre-checkout email gate. Stripe collects the email
+    // once at checkout, so we never ask twice. If we already know this visitor
+    // (from the newsletter or welcome popup), we still fire the Klaviyo event silently.
+    var email = (typeof cfkGetEmail === "function") ? cfkGetEmail() : null;
+    if (email) trackStartedCheckout(email, price, b);
+    startCheckout(price, b);
   });
 
   refreshInventory();
+})();
+</script>
+
+<!-- ═══════════════════ SUPPORT THE MISSION ("Buy us a coffee") ═══════════════════
+     Self-contained one-time-payment tip flow. Independent from the subscription
+     checkout above: no inventory sold-out guard, no shipping email gate, no
+     subscription mode. Trigger from anywhere with window.openSupport(), any element
+     with class "cfk-support-open", or the URL hash #support. -->
+<style>
+  /* Footer button + note */
+  .f-support{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding:8px 0 26px;text-align:center;}
+  .cfk-support-open{cursor:pointer;}
+  .cfk-sup-btn{display:inline-flex;align-items:center;gap:9px;padding:10px 22px;border-radius:100px;font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:0.02em;cursor:pointer;border:1.5px solid var(--gold);background:var(--gold);color:#fff;box-shadow:0 4px 18px rgba(201,150,42,0.32);transition:all .25s cubic-bezier(0.2,0.7,0.2,1);}
+  .cfk-sup-btn:hover{background:var(--gold-bright);border-color:var(--gold-bright);transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,150,42,0.42);}
+  .f-support-note{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,0.5);max-width:340px;line-height:1.5;text-align:left;}
+  @media(max-width:600px){.f-support{flex-direction:column;gap:10px;}.f-support-note{text-align:center;}}
+
+  /* Modal */
+  .cfk-supmodal{position:fixed;inset:0;z-index:100000;display:none;align-items:flex-start;justify-content:center;padding:24px 14px;overflow-y:auto;}
+  .cfk-supmodal.is-open{display:flex;}
+  .cfk-supmodal__backdrop{position:fixed;inset:0;background:rgba(36,19,86,0.55);}
+  .cfk-supmodal__panel{position:relative;z-index:1;width:100%;max-width:480px;margin:auto;background:var(--white);border-radius:20px;box-shadow:0 24px 60px rgba(36,19,86,0.35);padding:30px 26px 26px;}
+  .cfk-supmodal__close{position:absolute;top:12px;right:14px;width:34px;height:34px;border:0;border-radius:50%;background:#f1edf6;color:var(--purple-deep);font-size:22px;line-height:1;cursor:pointer;z-index:2;}
+  .cfk-supmodal__close:hover{background:#e3dcf0;}
+  .cfk-sup-glyph{text-align:center;font-size:26px;color:var(--gold);margin-bottom:6px;}
+  .cfk-sup-h{font-family:var(--serif);text-align:center;font-size:27px;font-weight:700;color:var(--purple-deep);margin:0 0 8px;line-height:1.15;}
+  .cfk-sup-sub{font-family:var(--sans);text-align:center;font-size:14px;color:var(--ink-3);line-height:1.55;margin:0 auto 20px;max-width:370px;}
+  .cfk-sup-amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
+  .cfk-sup-amt{font-family:var(--sans);font-size:17px;font-weight:700;color:var(--purple-deep);background:var(--cream);border:1.5px solid var(--border-2);border-radius:14px;padding:15px 6px;cursor:pointer;transition:all .18s ease;}
+  .cfk-sup-amt small{display:block;font-size:11px;font-weight:500;color:var(--ink-4);margin-top:3px;letter-spacing:.02em;}
+  .cfk-sup-amt:hover{border-color:var(--gold);}
+  .cfk-sup-amt.sel{border-color:var(--gold);background:var(--gold-pale);box-shadow:0 4px 14px rgba(201,150,42,0.18);}
+  .cfk-sup-custom{display:flex;align-items:center;gap:6px;border:1.5px solid var(--border-2);border-radius:14px;padding:13px 15px;margin-bottom:18px;background:var(--white);transition:all .18s ease;}
+  .cfk-sup-custom.sel{border-color:var(--gold);background:var(--gold-pale);}
+  .cfk-sup-custom span{font-family:var(--sans);font-size:17px;font-weight:700;color:var(--ink-3);}
+  .cfk-sup-custom input{border:0;outline:0;background:transparent;font-family:var(--sans);font-size:16px;font-weight:600;color:var(--purple-deep);width:100%;}
+  .cfk-sup-continue{width:100%;justify-content:center;}
+  .cfk-sup-fine{font-family:var(--sans);text-align:center;font-size:11.5px;color:var(--ink-4);line-height:1.5;margin:14px auto 0;max-width:390px;}
+  .cfk-sup-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13px;color:var(--purple);cursor:pointer;background:none;border:0;margin-bottom:12px;padding:4px 0;}
+  .cfk-sup-back:hover{color:var(--gold-muted);}
+  #cfk-support-mount{min-height:60px;}
+  .cfk-supmodal__msg{font-family:var(--sans);color:var(--ink-3);font-size:14px;line-height:1.5;text-align:center;padding:24px 12px;}
+</style>
+
+<div id="cfk-support-modal" class="cfk-supmodal" aria-hidden="true">
+  <div class="cfk-supmodal__backdrop" data-cfk-sup-close></div>
+  <div class="cfk-supmodal__panel" role="dialog" aria-modal="true" aria-labelledby="cfk-sup-title">
+    <button class="cfk-supmodal__close" data-cfk-sup-close aria-label="Close">&times;</button>
+
+    <!-- Step 1: choose amount -->
+    <div id="cfk-sup-step-amount">
+      <div class="cfk-sup-glyph" aria-hidden="true">✦</div>
+      <h3 id="cfk-sup-title" class="cfk-sup-h">Support the Mission</h3>
+      <p class="cfk-sup-sub">We're John &amp; Chelsea — two Catholic parents building faith-formation kits for families. A little support keeps the next box in the works. Thank you. ✝︎</p>
+
+      <div class="cfk-sup-amounts">
+        <button type="button" class="cfk-sup-amt" data-amt="300">$3<small>a coffee</small></button>
+        <button type="button" class="cfk-sup-amt sel" data-amt="500">$5<small>most common</small></button>
+        <button type="button" class="cfk-sup-amt" data-amt="1000">$10<small>a big help</small></button>
+      </div>
+
+      <div class="cfk-sup-custom" id="cfk-sup-custom-wrap">
+        <span>$</span>
+        <input type="text" inputmode="decimal" id="cfk-sup-custom-input" placeholder="Other amount" aria-label="Custom support amount in dollars">
+      </div>
+
+      <button type="button" class="btn btn-gold btn-arrow cfk-sup-continue" id="cfk-sup-continue">Continue</button>
+      <p class="cfk-sup-fine">Catholic Family Kit LLC is a for-profit family business, so this is a gift of support — <strong>not a tax-deductible donation</strong>. Secure one-time payment via Stripe. No account, no subscription.</p>
+    </div>
+
+    <!-- Step 2: embedded Stripe checkout -->
+    <div id="cfk-sup-step-pay" style="display:none;">
+      <button type="button" class="cfk-sup-back" id="cfk-sup-back">← Change amount</button>
+      <div id="cfk-support-mount"></div>
+    </div>
+
+    <div id="cfk-support-msg" class="cfk-supmodal__msg" role="status" style="display:none;"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var WORKER_URL = "https://cfk-checkout.catholicfamilykit.workers.dev";
+  var PUBLISHABLE_KEY = "pk_live_51SbXNDQqTHTqFrY6xWizycKoYqL382G1XGjH497UNegucqMeSFSmjluHF2evpau40Qy68QyEqjIywrA5jvCfBzho007wLd3ujt";
+  if (typeof Stripe === "undefined") return;
+  var supStripe = Stripe(PUBLISHABLE_KEY);
+
+  var modal    = document.getElementById("cfk-support-modal");
+  if (!modal) return;
+  var stepAmt  = document.getElementById("cfk-sup-step-amount");
+  var stepPay  = document.getElementById("cfk-sup-step-pay");
+  var msgEl    = document.getElementById("cfk-support-msg");
+  var MOUNT    = "#cfk-support-mount";
+  var customWrap  = document.getElementById("cfk-sup-custom-wrap");
+  var customInput = document.getElementById("cfk-sup-custom-input");
+  var continueBtn = document.getElementById("cfk-sup-continue");
+  var backBtn     = document.getElementById("cfk-sup-back");
+  var amtBtns     = Array.prototype.slice.call(modal.querySelectorAll(".cfk-sup-amt"));
+  var supCheckout = null;
+  var selectedAmount = 500; // cents; default $5
+
+  function open()  { resetToAmount(); modal.classList.add("is-open"); modal.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; }
+  function close() {
+    modal.classList.remove("is-open"); modal.setAttribute("aria-hidden", "true"); document.body.style.overflow = "";
+    if (supCheckout) { try { supCheckout.destroy(); } catch (e) {} supCheckout = null; }
+    resetToAmount();
+  }
+  function resetToAmount() {
+    stepPay.style.display = "none";
+    msgEl.style.display = "none"; msgEl.textContent = "";
+    stepAmt.style.display = "";
+  }
+  function selectPreset(cents) {
+    selectedAmount = cents;
+    customWrap.classList.remove("sel"); customInput.value = ""; customInput.placeholder = "Other amount";
+    amtBtns.forEach(function (b) { b.classList.toggle("sel", parseInt(b.getAttribute("data-amt"), 10) === cents); });
+  }
+
+  amtBtns.forEach(function (b) {
+    b.addEventListener("click", function () { selectPreset(parseInt(b.getAttribute("data-amt"), 10)); });
+  });
+  customInput.addEventListener("focus", function () {
+    amtBtns.forEach(function (b) { b.classList.remove("sel"); });
+    customWrap.classList.add("sel");
+  });
+  customInput.addEventListener("input", function () {
+    var v = parseFloat(customInput.value.replace(/[^0-9.]/g, ""));
+    amtBtns.forEach(function (b) { b.classList.remove("sel"); });
+    customWrap.classList.add("sel");
+    selectedAmount = isNaN(v) ? 0 : Math.round(v * 100);
+  });
+
+  modal.querySelectorAll("[data-cfk-sup-close]").forEach(function (el) { el.addEventListener("click", close); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("is-open")) close(); });
+  backBtn.addEventListener("click", function () {
+    if (supCheckout) { try { supCheckout.destroy(); } catch (e) {} supCheckout = null; }
+    resetToAmount();
+  });
+
+  async function startSupport() {
+    if (!selectedAmount || selectedAmount < 100) {
+      customWrap.classList.add("sel"); customInput.focus(); customInput.placeholder = "Enter at least $1";
+      return;
+    }
+    if (selectedAmount > 100000) selectedAmount = 100000; // cap $1,000
+    var label = continueBtn.textContent;
+    continueBtn.disabled = true; continueBtn.textContent = "Loading...";
+    try {
+      var res = await fetch(WORKER_URL + "/create-support", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: selectedAmount })
+      });
+      var data = await res.json();
+      if (data && data.client_secret) {
+        stepAmt.style.display = "none";
+        stepPay.style.display = "";
+        if (supCheckout) { try { supCheckout.destroy(); } catch (e) {} supCheckout = null; }
+        supCheckout = await supStripe.initEmbeddedCheckout({ clientSecret: data.client_secret });
+        supCheckout.mount(MOUNT);
+        // Optional: fire a Klaviyo event if we already know this visitor's email.
+        try {
+          if (typeof cfkGetEmail === "function" && typeof klaviyoTrackEvent === "function") {
+            var em = cfkGetEmail();
+            if (em) klaviyoTrackEvent('Started Support', em, { amount_usd: selectedAmount / 100, page: window.location.pathname });
+          }
+        } catch (e) {}
+      } else {
+        stepAmt.style.display = "none"; msgEl.style.display = "";
+        msgEl.textContent = "Sorry, something went wrong starting your support. Please try again in a moment.";
+      }
+    } catch (err) {
+      stepAmt.style.display = "none"; msgEl.style.display = "";
+      msgEl.textContent = "Network error — please check your connection and try again.";
+    } finally {
+      continueBtn.disabled = false; continueBtn.textContent = label;
+    }
+  }
+  continueBtn.addEventListener("click", startSupport);
+
+  // ── Public triggers ──
+  // 1) window.openSupport()   2) any element with class "cfk-support-open"   3) URL hash #support
+  window.openSupport = open;
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest(".cfk-support-open");
+    if (!t) return;
+    e.preventDefault();
+    open();
+  });
+  if (window.location.hash === "#support") { setTimeout(open, 400); }
+  window.addEventListener("hashchange", function () { if (window.location.hash === "#support") open(); });
 })();
 </script>
 </body></html>
