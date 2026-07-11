@@ -1236,6 +1236,25 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+<!-- ═══════════════════ TikTok Pixel ═══════════════════ -->
+<!-- Tracking stays HELD until the visitor accepts the cookie banner (see end of <body>). -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+  ttq.load('D997RUJC77U7PB56ODP0');
+
+  /* Consent-first, matching our GA4 Consent Mode setup: hold all TikTok
+     tracking until the visitor clicks Accept on the cookie banner. */
+  ttq.holdConsent();
+  /* Returning visitor who already accepted - release right away. */
+  try { if (localStorage.getItem('cfk_cookie_consent') === 'granted') ttq.grantConsent(); } catch(e){}
+
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- ═════════════════ end TikTok Pixel ═════════════════ -->
 </head>
 <body>
 
@@ -3047,6 +3066,30 @@ document.addEventListener('click', e=>{
   }
 
   async function startCheckout(price, btn) {
+    /* ── TikTok Pixel: InitiateCheckout ──
+       Fires as the Stripe modal opens. We also stash the plan + value so the
+       thank-you page can report the correct purchase value back to TikTok. */
+    try {
+      var TTQ_PLANS = {
+        "price_1TVEHfQqTHTqFrY6IxSeAepk": { value: 49.95, name: "Monthly Kit" },
+        "price_1TVDUoQqTHTqFrY6MmEs7Qi9": { value: 495.00, name: "Annual Kit" },
+        "price_1TVDGiQqTHTqFrY6RgIapHdZ": { value: 39.95, name: "Founding Member" }
+      };
+      var plan = TTQ_PLANS[price] || { value: 49.95, name: "Monthly Kit" };
+      try {
+        localStorage.setItem('cfk_pending_purchase', JSON.stringify({
+          content_id: price, content_name: plan.name, value: plan.value, ts: Date.now()
+        }));
+      } catch (e) {}
+      if (window.ttq) ttq.track('InitiateCheckout', {
+        content_id: price,
+        content_type: 'product',
+        content_name: plan.name,
+        value: plan.value,
+        currency: 'USD'
+      });
+    } catch (e) {}
+
     var label = btn ? btn.textContent : "";
     if (btn) { btn.disabled = true; btn.textContent = "Loading..."; }
     try {
@@ -3371,6 +3414,9 @@ document.addEventListener('click', e=>{
     try { localStorage.setItem(KEY, state); } catch(e){}
     if (typeof gtag === 'function') {
       gtag('consent', 'update', { 'analytics_storage': state });
+    }
+    if (window.ttq) {                        /* TikTok Pixel: release or revoke */
+      if (state === 'granted') { ttq.grantConsent(); } else { ttq.revokeConsent(); }
     }
     banner.classList.remove('show');
   }
