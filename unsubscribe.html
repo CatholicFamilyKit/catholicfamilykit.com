@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Unsubscribe | Catholic Family Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple-deep:#27144a;
+    --purple:#3b1f5e;
+    --gold:#c9962a;
+    --gold-muted:#a87820;
+    --cream:#fdf8f0;
+    --ink:#3a3243;
+    --muted:#6b6076;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:var(--purple-deep);
+    font-family:'DM Sans',Helvetica,Arial,sans-serif;
+    color:var(--ink);
+  }
+  .card{
+    width:100%;
+    max-width:480px;
+    background:var(--cream);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .masthead{
+    background:var(--purple);
+    border-bottom:3px solid var(--gold);
+    padding:24px;
+    text-align:center;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .body{padding:32px 32px 36px;}
+  h1{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:26px;
+    line-height:34px;
+    margin:0 0 12px;
+    color:var(--purple-deep);
+  }
+  p{font-size:15px;line-height:25px;margin:0 0 20px;}
+  label{
+    display:block;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--gold-muted);
+    margin-bottom:8px;
+  }
+  input[type=email]{
+    width:100%;
+    padding:13px 14px;
+    font-family:inherit;
+    font-size:16px;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid #ddd0b8;
+    border-radius:3px;
+  }
+  input[type=email]:focus{
+    outline:2px solid var(--gold);
+    outline-offset:1px;
+    border-color:var(--gold);
+  }
+  button{
+    width:100%;
+    margin-top:18px;
+    padding:14px;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    color:var(--cream);
+    background:var(--purple);
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  button:hover{background:var(--purple-deep);}
+  button:disabled{background:#8d80a5;cursor:not-allowed;}
+  button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .status{
+    margin-top:18px;
+    font-size:14px;
+    line-height:23px;
+    padding:14px 16px;
+    border-radius:3px;
+    display:none;
+  }
+  .status.ok{display:block;background:#f3ead9;border-left:4px solid var(--gold);color:var(--ink);}
+  .status.err{display:block;background:#f7e6e6;border-left:4px solid #a33;color:#7a2222;}
+  .fineprint{
+    margin:22px 0 0;
+    font-size:13px;
+    line-height:21px;
+    color:var(--muted);
+  }
+  .fineprint a{color:var(--gold-muted);}
+  .footer{
+    background:var(--purple-deep);
+    padding:20px 24px;
+    text-align:center;
+    font-size:12px;
+    line-height:20px;
+    color:#a396bb;
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="masthead">
+    <div class="eyebrow">Catholic Family Kit</div>
+  </div>
+
+  <div class="body">
+    <h1>Unsubscribe</h1>
+    <p>Enter the email address you would like removed. No questions, no retention offer. It will be handled within one business day.</p>
+
+    <div id="formWrap">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+      <button type="button" id="submitBtn">Remove me from the list</button>
+    </div>
+
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+
+    <p class="fineprint">
+      Trouble with the form? Email
+      <a href="mailto:hello@catholicfamilykit.com?subject=Unsubscribe">hello@catholicfamilykit.com</a>
+      with the word Unsubscribe and we will take care of it.
+    </p>
+  </div>
+
+  <div class="footer">
+    Catholic Family Kit LLC<br>
+    3120 Southwest Fwy Ste 101, PMB 941687<br>
+    Houston, Texas 77098-4520, US
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+  // ---- CONFIG -------------------------------------------------------------
+  var PUBLIC_KEY  = "Sv0abY2oSbsBnSwLw";
+  var SERVICE_ID  = "service_tcy0kxp";
+  var TEMPLATE_ID = "template_zdxbips";  // swap for a dedicated unsubscribe template
+  // -------------------------------------------------------------------------
+
+  emailjs.init({ publicKey: PUBLIC_KEY });
+
+  var btn    = document.getElementById("submitBtn");
+  var input  = document.getElementById("email");
+  var status = document.getElementById("status");
+
+  function show(kind, msg){
+    status.className = "status " + kind;
+    status.textContent = msg;
+  }
+
+  function valid(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+
+  function send(){
+    var addr = input.value.trim();
+
+    if(!valid(addr)){
+      show("err", "That does not look like a valid email address. Check it and try again.");
+      input.focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+    status.className = "status";
+
+    // Field names must match the variables in your EmailJS template.
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+      name:    "UNSUBSCRIBE REQUEST",
+      email:   addr,
+      subject: "UNSUBSCRIBE: " + addr,
+      message: "Unsubscribe request submitted from the website.\n\n"
+             + "Remove this address from all marketing lists: " + addr + "\n"
+             + "Submitted: " + new Date().toISOString()
+    }).then(function(){
+      document.getElementById("formWrap").style.display = "none";
+      show("ok", "Done. " + addr + " has been submitted for removal and you will not receive further marketing emails from us. You may still get receipts or shipping notices if you have an active subscription.");
+    }).catch(function(err){
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = "Remove me from the list";
+      show("err", "Something went wrong on our end. Please email hello@catholicfamilykit.com with the word Unsubscribe and we will remove you manually.");
+    });
+  }
+
+  btn.addEventListener("click", send);
+  input.addEventListener("keydown", function(e){
+    if(e.key === "Enter") send();
+  });
+})();
+</script>
+
+</body>
+</html>
