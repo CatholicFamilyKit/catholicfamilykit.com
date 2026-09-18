@@ -991,6 +991,15 @@ em{font-style:italic;}
 .compare-tbl .featured-col{background:var(--gold-pale);color:var(--purple-deep);font-weight:600;}
 
 /* whats-inside grid (subscriptions) */
+.cfk-launch{background:linear-gradient(135deg,var(--purple-deep) 0%,var(--purple) 100%);border-radius:var(--r-lg);padding:44px 48px 40px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between;position:relative;border:1px solid rgba(201,150,42,0.4);margin:0 0 8px;}
+.cfk-launch::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse 60% 80% at 15% 30%,rgba(232,184,75,0.2),transparent 65%);pointer-events:none;}
+.cfk-launch-badge{position:absolute;top:-16px;left:48px;background:var(--gold);color:#fff;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 20px;border-radius:100px;box-shadow:0 4px 14px rgba(201,150,42,0.4);z-index:2;white-space:nowrap;}
+.cfk-launch-body{flex:1;min-width:260px;position:relative;z-index:2;}
+.cfk-launch-body h3{color:#fff;margin-bottom:10px;}
+.cfk-launch-body p{color:rgba(255,255,255,0.85);font-size:15.5px;line-height:1.7;max-width:600px;margin:0;}
+.cfk-launch-note{display:inline-block;margin-top:12px;font-family:var(--sans);font-size:12.5px;font-weight:600;color:#fde68a;letter-spacing:0.02em;}
+.cfk-launch .btn{position:relative;z-index:2;flex-shrink:0;}
+@media(max-width:640px){.cfk-launch{padding:44px 26px 30px;flex-direction:column;align-items:flex-start;text-align:left;}.cfk-launch-badge{left:26px;}.cfk-launch .btn{width:100%;justify-content:center;}}
 .wi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:40px;}
 .wi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:28px 22px;text-align:center;transition:all 0.3s;}
 .wi-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:var(--gold-muted);}
@@ -1397,6 +1406,21 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
     </div>
   </section>
 
+  <!-- NEW PRODUCT LAUNCH: Our Catholic Family Journal -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container">
+      <div class="cfk-launch reveal">
+        <div class="cfk-launch-badge">✦ New Item Launch ✦</div>
+        <div class="cfk-launch-body">
+          <h3>Introducing Our Catholic Family Journal.</h3>
+          <p>A guided keepsake for parents and kids to fill in together — simple prompts, gratitude pages, and shared reflections that turn a few minutes into real bonding time. It's in October's kit starting now.</p>
+          <span class="cfk-launch-note">Same kit. Same price. One more way to grow closer.</span>
+        </div>
+        <a class="btn btn-gold btn-lg btn-arrow" onclick="navigate('subscriptions')"><span class="cfk-promo-only">Get October's Kit — $24.99/mo</span><span class="cfk-std-only">Subscribe — $29.99/mo</span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- AUGUST KIT SPOTLIGHT -->
   <section class="section cream">
     <div class="container">
@@ -1416,6 +1440,7 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
             <div class="box-row"><div class="box-icon" style="background:#fdf0f0">🙏</div><div class="box-rt"><strong>Seasonal Prayer Card</strong><span>Tied to the liturgical season</span></div></div>
             <div class="box-row"><div class="box-icon" style="background:#f0e8f8">📚</div><div class="box-rt"><strong>Children's Booklet</strong><span>Curriculum-grade, ages 7–11</span></div></div>
             <div class="box-row"><div class="box-icon" style="background:#e8f2ea">🌿</div><div class="box-rt"><strong>Virtue Card</strong><span>Character + saint pairing</span></div></div>
+            <div class="box-row"><div class="box-icon" style="background:#fdf3dc">📔</div><div class="box-rt"><strong>Our Catholic Family Journal</strong><span>New — parent &amp; child, together</span></div></div>
           </div>
           <div class="box-foot"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" style="width:1em;height:1em;vertical-align:-0.125em"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16z"/></svg> Arrives by the 1st of every month</div>
         </div>
@@ -1450,6 +1475,7 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
           <div class="cfk-vs-item"><span class="k">✝️ Saint Card Set</span><span class="v">Illustrated cards for the month's feasts.</span></div>
           <div class="cfk-vs-item"><span class="k">🙏 Seasonal Prayer Card</span><span class="v">Tied to the liturgical season, made to keep.</span></div>
           <div class="cfk-vs-item"><span class="k">🌿 Virtue Card</span><span class="v">A virtue paired with the saint who lived it.</span></div>
+          <div class="cfk-vs-item"><span class="k">📔 Our Catholic Family Journal</span><span class="v">New this month — guided pages for parent and child to fill in together.</span></div>
           <div class="cfk-vs-item"><span class="k">🛡️ Seminary-Reviewed</span><span class="v">Every kit reviewed for doctrinal accuracy before it ships.</span></div>
           <div class="cfk-vs-item"><span class="k">🚚 Free US Shipping</span><span class="v">Included on every plan. No surprise charges.</span></div>
         </div>
@@ -1480,13 +1506,14 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
               <div class="wi" data-i="4"><span class="ico">📚</span><div class="wi-name">Booklet</div><div class="wi-sub">Ages 7–11</div></div>
               <div class="wi" data-i="5"><span class="ico">💎</span><div class="wi-name">Virtue Card</div><div class="wi-sub">Character</div></div>
               <div class="wi" data-i="6"><span class="ico">🕯</span><div class="wi-name">Family Ritual</div><div class="wi-sub">Weekly rhythm</div></div>
+              <div class="wi" data-i="7"><span class="ico">📔</span><div class="wi-name">Family Journal</div><div class="wi-sub">New this month</div></div>
             </div>
           </div>
         </div>
         <div class="whats-text reveal d1">
           <span class="eyebrow">Hover Each Item</span>
           <h2>Inside every kit: a complete family session.</h2>
-          <p>Six curated pieces, designed by an early-childhood educator and reviewed by a seminary professor. Tap an item to see what each does for your family.</p>
+          <p>Eight curated pieces, designed by an early-childhood educator and reviewed by a seminary professor. Tap an item to see what each does for your family.</p>
           <div class="whats-detail" id="whats-detail">
             <span class="meta">Activity Guide</span>
             <h4>The lesson plan that makes you the catechist.</h4>
@@ -1686,7 +1713,7 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
           <div class="pdiv"></div>
           <ul class="pfeats">
             <li>Full monthly Catholic Family Kit</li>
-            <li>All 7+ items every month</li>
+            <li>All 8+ items every month</li>
             <li>Seminary-reviewed content</li>
             <li>Free US shipping</li>
             <li>Skip or cancel anytime</li>
@@ -1708,7 +1735,7 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
           <div class="pdiv"></div>
           <ul class="pfeats">
             <li>3 kits — a full liturgical season</li>
-            <li>All 7+ items every month</li>
+            <li>All 8+ items every month</li>
             <li>Seminary-reviewed content</li>
             <li>Free US shipping</li>
             <li><strong>Lowest per-kit price after Annual</strong></li>
@@ -1853,7 +1880,7 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
       <div class="text-center reveal">
         <span class="eyebrow center">Every Single Month</span>
         <h2>What's in every kit.</h2>
-        <p class="subtitle">Six curated pieces, assembled around the liturgical season, delivered before the month begins.</p>
+        <p class="subtitle">Seven curated pieces, assembled around the liturgical season, delivered before the month begins.</p>
       </div>
       <div class="wi-grid reveal">
         <div class="wi-card"><div class="emoji">📖</div><h4>Activity Guide</h4><p>Step-by-step session. Zero prep needed.</p></div>
@@ -1862,6 +1889,7 @@ src="https://www.facebook.com/tr?id=1835845524491285&ev=PageView&noscript=1"
         <div class="wi-card"><div class="emoji">🙏</div><h4>Prayer Card</h4><p>Tied to the current liturgical season.</p></div>
         <div class="wi-card"><div class="emoji">📚</div><h4>Children's Booklet</h4><p>Curriculum-grade. Written for ages 7–11.</p></div>
         <div class="wi-card"><div class="emoji">💎</div><h4>Virtue Card</h4><p>Character formation tied to the season.</p></div>
+        <div class="wi-card"><div class="emoji">📔</div><h4>Family Journal</h4><p>New: guided pages for parent and child together.</p></div>
       </div>
     </div>
   </section>
@@ -2714,7 +2742,8 @@ const WI_DETAILS = [
   {meta:'Prayer Card', title:'A prayer for the season.', body:'A laminated, family-sized prayer card for the current liturgical season. Prop it in the kitchen. Pray it before dinner. By month\'s end, your kids will know it by heart.'},
   {meta:'Children\'s Booklet', title:'Curriculum-grade, joy-filled reading.', body:'A short illustrated booklet your child will reach for at bedtime. Written by an early-childhood educator, reviewed by a seminary professor, designed for ages 7–11 with text tiered for shared reading.'},
   {meta:'Virtue Card', title:'Character formation, woven with the faith.', body:'A virtue paired to the season and to a saint. Patience with St. Monica. Courage with St. Joan. A printed card with a family practice for the month.'},
-  {meta:'Family Ritual', title:'A weekly rhythm you can keep.', body:'A simple, repeatable weekly practice — Sunday lighting, Friday fast, family blessing — designed to become a tradition your kids ask for next year.'}
+  {meta:'Family Ritual', title:'A weekly rhythm you can keep.', body:'A simple, repeatable weekly practice — Sunday lighting, Friday fast, family blessing — designed to become a tradition your kids ask for next year.'},
+  {meta:'Our Catholic Family Journal', title:'New this month — bonding time, built in.', body:'A guided keepsake journal with shared prompts, gratitude pages, and simple reflections that draw parent and child together, one page at a time. Included in every kit starting this month, at no extra cost.'}
 ];
 document.querySelectorAll('#wi-items .wi').forEach(wi=>{
   wi.addEventListener('click',()=>{
@@ -3126,7 +3155,7 @@ document.addEventListener('click', e=>{
   }
 
   async function startCheckout(price, btn) {
-    var label = btn ? btn.textContent : "";
+    var label = btn ? btn.innerHTML : "";
     if (btn) { btn.disabled = true; btn.textContent = "Loading..."; }
     try {
       var res = await fetch(WORKER_URL + "/create-checkout", {
@@ -3150,7 +3179,7 @@ document.addEventListener('click', e=>{
     } catch (err) {
       openModal(); msgEl.textContent = "Network error - please check your connection and try again.";
     } finally {
-      if (btn) { btn.disabled = false; btn.textContent = label; }
+      if (btn) { btn.disabled = false; btn.innerHTML = label; }
     }
   }
 
